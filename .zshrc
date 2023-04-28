@@ -1,5 +1,5 @@
-# Connecting Oh My Zsh 
-export ZSH="$HOME/.oh-my-zsh" 
+# Connecting Oh My Zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 plugins=(git zsh-syntax-highlighting)
@@ -37,14 +37,28 @@ export LANG=en_US.UTF-8
 alias zshconf="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
+# Characters
+ARR=""
+ERR=""
+
+# Colors
+XB="33" # BLUE
+XG="40" # GREEN
+XR="160" # RED
+XY="178" #YELLOW
+XC="50" # CYAN
+XP="93" # PUPRLE
+
 # The appearance of the command line
-PROMPT="%F{cyan }[%f%n%F{cyan}@%f%m%F{cyan }]%f %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PROMPT="%F{$XB }[%f%n%F{$XB }@%f%m%F{$XB }]%f %(?:%{%F{$XG }%}$ARR :%{%F{$XR }%}$ERR )"
+RPROMPT="%F{$XB }[%f%*%F{$XB }]%f"
+
 PROMPT+='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[white]%}/ %{%F{$XP}%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[white]%} %{%F{$XY}%}$ERR"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[white]%}"
 
 # Autoload
 autoload -Uz compinit && compinit
