@@ -1,0 +1,79 @@
+# vim: ft=zsh
+
+mkdcd () {
+  [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
+}
+
+slit () {
+  awk "{ print ${(j:,:):-\$${^@}} }"
+}
+
+tssh () {
+  ssh $1 -t 'tmux has-session && tmux attach -t dhruva || tmux new -s dhruva'
+}
+
+go-cover () {
+  t="/tmp/go-cover.$$.tmp"
+  go test -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
+}
+
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do time $shell -i -c exit; done
+}
+
+profzsh() {
+  shell=${1-$SHELL}
+  ZPROF=true $shell -i -c exit
+}
+
+timevim() {
+  for i in $(seq 1 10); do /usr/bin/time vim +qa; done
+}
+
+mac-cam() {
+  ffplay -f avfoundation -framerate 30 -i "0" -fflags nobuffer -noborder -left 1120 -top 660
+}
+
+sloc () {
+  git ls-files | grep "$1" | grep -v grep | xargs wc -l
+}
+
+docker-dev () {
+  port="$1"
+  project=${PWD##*/}
+  if [ -z "$port" ]; then
+    docker run -dt -v $PWD:/opt/projects --name $project debian:10 bash
+  else
+    docker run -dt -v $PWD:/opt/projects -p $port:$port --name $project debian:10 bash
+  fi
+}
+
+# asdf () {
+#   echo "ASDF not loaded! Loading now..."
+#   unset -f asdf
+#   if [ -d "$HOME/.asdf" ]; then
+#     autoload -Uz bashcompinit
+#     bashcompinit
+#     . "$HOME/.asdf/asdf.sh"
+#     . "$HOME/.asdf/completions/asdf.bash"
+#     asdf "$@"
+#   fi
+# }
+
+lcflow () {
+	period=${1-"this month"}
+	ledger --current --invert --real --wide -s -X $ -S "amount" -p "$period" reg income expenses
+}
+
+calc () {
+  echo "$@" | bc -l
+}
+
+rmd () {
+  pandoc $1 | lynx -stdin
+}
+
+stream() {
+  streamlink --player mpv --player-args '--ontop' $1 best
+}

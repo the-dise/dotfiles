@@ -1,0 +1,18 @@
+#!/bin/bash
+
+relink () {
+  src="$1"
+  dst="$2"
+
+  rm -rf "$dst"
+
+  dir=$(dirname "$dst")
+  [[ ! -d "$dir" ]] && mkdir -p "$dir"
+
+  ln -s "$src" "$dst"
+}
+
+XDG_CONFIG_HOME=$XDG_CONFIG_HOME:=$HOME/.config
+
+relink ~/dotfiles/vim ~/.vim
+relink ~/dotfiles/zsh/zshrc ~/.zshrc

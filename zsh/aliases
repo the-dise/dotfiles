@@ -1,0 +1,33 @@
+# vim: ft=zsh
+
+# Alias Oh My Zsh
+alias zshconf="vim ~/.zshrc && exec zsh"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+
+if [ $+commands[curl] ]; then
+  alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
+elif [ $+commands[wget] ]; then
+  alias get='wget --continue --progress=bar --timestamping'
+fi
+
+# Colorify
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias l='ls --color=auto -1tA'
+  alias ls='ls --color=auto'
+  alias ll='ls -lth --color=auto'
+  alias lla='ls -alth --color=auto'
+else
+  alias l='ls --color=auto -1tA'
+  alias ls='ls --color=auto --group-directories-first'
+  alias ll='ls -lthN --color=auto --group-directories-first'
+fi
+
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} --exclude-dir={.bundle,node_modules}'
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias yt='youtube-dl --add-metadata -ic'   # Download video
+alias yta='youtube-dl --add-metadata -xic' # Download audio
+

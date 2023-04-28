@@ -1,0 +1,11 @@
+set searchurls.r   https://old.reddit.com/r/%s
+set searchurls.w   https://en.wikipedia.org/w/index.php?search=%s
+set searchurls.wd  https://en.wiktionary.org/wiki/?search=%s
+
+set yankto both
+set putfrom selection
+
+autocmd DocStart github.com mode ignore
+autocmd DocStart nitrotype.com mode ignore
+autocmd DocStart mail.google.com mode ignore
+autocmd DocStart cstimer.net mode ignore
