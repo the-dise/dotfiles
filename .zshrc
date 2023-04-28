@@ -52,7 +52,6 @@ XP="93" # PUPRLE
 # The appearance of the command line
 PROMPT="%F{$XB }[%f%n%F{$XB }@%f%m%F{$XB }]%f %(?:%{%F{$XG }%}$ARR :%{%F{$XR }%}$ERR )"
 RPROMPT="%F{$XB }[%f%*%F{$XB }]%f"
-
 PROMPT+='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[white]%}/ %{%F{$XP}%}"
