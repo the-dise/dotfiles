@@ -1,10 +1,10 @@
 typeset -aHg DBOX_PROMPT_SEGMENTS=(
   prompt_status
-	 prompt_context
-   prompt_virtualenv
-   prompt_dir
-   prompt_git
-   prompt_end
+	prompt_context
+  prompt_virtualenv
+  prompt_dir
+  prompt_git
+  prompt_end
 )
 
 ### Segment drawing
@@ -12,17 +12,23 @@ typeset -aHg DBOX_PROMPT_SEGMENTS=(
 
 CURRENT_BG='NONE'
 if [[ -z "$PRIMARY_FG" ]]; then
-	PRIMARY_FG=235 
+	PRIMARY_FG=237 
 fi
 
 # Characters
-SEGMENT_SEPARATOR="\ue0b0" # 
-PLUSMINUS="\u00b1" # 󰂱
-BRANCH="\ue0a0" # 
-DETACHED="\u27a6" # ➦
-CROSS="\u2718" # ✘
+SEPARATOR="\ue0b0" # 
+
 LIGHTNING="\u26a1" # ⚡
 GEAR="\u2699" # ⚙
+
+BRANCH="\ue0a0" # 
+DETACHED="\u27a6" # ➦
+EDIT="\uf044" # 
+
+IDENTICAL="\u2262" 
+
+CHECK="\uf046" # 
+SAVE="\uf692" # 
 
 # Dist icons
 case $(uname) in
@@ -74,7 +80,7 @@ prompt_segment() {
   [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
   [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
   if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-    print -n "%{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%}"
+    print -n "%{$bg%F{$CURRENT_BG}%}$SEPARATOR%{$fg%}"
   else
     print -n "%{$bg%}%{$fg%}"
   fi
@@ -85,7 +91,7 @@ prompt_segment() {
 # End the prompt, closing any open segments
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
-    print -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+    print -n "%{%k%F{$CURRENT_BG}%}$SEPARATOR"
   else
     print -n "%{%k%}"
   fi
@@ -124,10 +130,10 @@ prompt_git() {
   if [[ -n "$ref" ]]; then
     if is_dirty; then
       color=209	#ff875f
-      ref="${ref} $PLUSMINUS"
+      ref="${ref} $EDIT "
     else
-      color=green
-      ref="${ref} "
+      color=100 
+      ref="${ref} $IDENTICAL "
     fi
     if [[ "${ref/.../}" == "$ref" ]]; then
       ref="$BRANCH $ref"
@@ -151,9 +157,9 @@ prompt_dir() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$CROSS"
-  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}$GEAR"
+  # [[ $RETVAL -ne 0 ]] && symbols+="%B%F{124}%f%b"
+  [[ $UID -eq 0 ]] && symbols+="%B%F{221}%f%b"
+  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%B%F{221}%f%b"
 
   [[ -n "$symbols" ]] && prompt_segment $PRIMARY_FG default " $symbols "
 }

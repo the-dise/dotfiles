@@ -1,0 +1,12 @@
+# vim: ft=zsh
+
+XB="33" # BLUE
+XG="40" # GREEN
+XR="160" # RED
+XY="178" #YELLOW
+XC="50" # CYAN
+XP="93" # PUPRLE
+
+# The appearance of the command line
+PROMPT="%F{$XB}[%f%n%F{$XB}@%f%m%F{$XB}]%f %(?:%{%F{$XG }%} :%{%F{$XR}%} )"
+RPROMPT="%F{$XB}[%f%*%F{$XB}]%f"

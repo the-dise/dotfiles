@@ -1,3 +1,8 @@
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export EDITOR='vim'
+export VISUAL='vim'
+
 # Optimize ZSH
 if [[ "$ZPROF" = true ]]; then
   zmodload zsh/zprof
@@ -5,25 +10,14 @@ fi
 
 stty -ixon
 
+# Setup Oh My Zsh
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="dbox"
+plugins=(git colorize zsh-autosuggestions zsh-syntax-highlighting)
+source $ZSH/oh-my-zsh.sh
+
+# Setup history
 . ~/dotfiles/zsh/compinit
-
-bindkey -e
-
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export EDITOR='vim'
-export VISUAL='vim'
-
-# ZSH_THEME="~/dotfiles/zsh/dbox"
-# plugins=(git zsh-syntax-highlighting)
-
-setopt 'extended_glob'         # Enhanced file search capabilities
-setopt 'interactive_comments'  # Allow comments in interactive mode
-setopt 'noclobber'             # Protect against accidentally overwriting files
-setopt 'notify'                # Notification of the end of long tasks
-
-# Autoload
-autoload -Uz compinit && compinit
 
 # Setup history
 . ~/dotfiles/zsh/hist
@@ -31,11 +25,11 @@ autoload -Uz compinit && compinit
 # Setup zsh styles
 . ~/dotfiles/zsh/zstyles
 
+# Setup Prompt
+# . ~/dotfiles/zsh/prompt
+
 # Setup CDPATH for directory completion
 . ~/dotfiles/zsh/cdpath
-
-# Setup Prompt
-. ~/dotfiles/zsh/pristine_prompt
 
 # Setup functions
 . ~/dotfiles/zsh/funcs
@@ -43,11 +37,8 @@ autoload -Uz compinit && compinit
 # Setup aliases
 . ~/dotfiles/zsh/aliases
 
-# Setup bindkeys
-. ~/dotfiles/zsh/bindkeys
-
-for f (~/dotfiles/zsh/plugin/*) source $f
 
 if [[ "$ZPROF" = true ]]; then
   zprof
 fi
+
