@@ -1,4 +1,2 @@
-# zshrc
-```
-git clone https://github.com/the-dise/zshrc.git ~
-```
+# Dise's command line interface configurations
+
