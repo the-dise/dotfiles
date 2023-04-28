@@ -1,9 +1,20 @@
+# vim:ft=zsh ts=2 sw=2 sts=2
+#
+# DBox's Theme
+#
+# This is a fork of the popular Agnoster's Theme, a zsh shell theme designed to show relevant information quickly, 
+# with lean status segments and a powerline-style visual look. 
+#
+# The original Agnoster's Theme was created by [agnoster](https://github.com/agnoster/agnoster-zsh-theme), 
+# and this fork includes some minor tweaks and customizations that I have added.
+
+
 typeset -aHg DBOX_PROMPT_SEGMENTS=(
-  prompt_status
 	prompt_context
   prompt_virtualenv
   prompt_dir
   prompt_git
+  prompt_status_root
   prompt_end
 )
 
@@ -16,19 +27,18 @@ if [[ -z "$PRIMARY_FG" ]]; then
 fi
 
 # Characters
-SEPARATOR="\ue0b0" # 
+LDIV="\ue0b0" # 
+RDIV="\ue0b2" # 
 
-LIGHTNING="\u26a1" # ⚡
-GEAR="\u2699" # ⚙
+ROOT="\uf0ad" # 
+GEAR="\uf013" # 
+ERRO="\uf00d" # 
 
-BRANCH="\ue0a0" # 
-DETACHED="\u27a6" # ➦
+BRAN="\ue0a0" # 
+DETA="\u27a6" # ➦
 EDIT="\uf044" # 
+IDEN="\u2262" 
 
-IDENTICAL="\u2262" 
-
-CHECK="\uf046" # 
-SAVE="\uf692" # 
 
 # Dist icons
 case $(uname) in
@@ -80,7 +90,7 @@ prompt_segment() {
   [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
   [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
   if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-    print -n "%{$bg%F{$CURRENT_BG}%}$SEPARATOR%{$fg%}"
+    print -n "%{$bg%F{$CURRENT_BG}%}$LDIV%{$fg%}"
   else
     print -n "%{$bg%}%{$fg%}"
   fi
@@ -91,7 +101,7 @@ prompt_segment() {
 # End the prompt, closing any open segments
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
-    print -n "%{%k%F{$CURRENT_BG}%}$SEPARATOR"
+    print -n "%{%k%F{$CURRENT_BG}%}$LDIV"
   else
     print -n "%{%k%}"
   fi
@@ -101,22 +111,13 @@ prompt_end() {
 
 ### Prompt components
 # Each component will draw itself, and hide itself if no information needs to be shown
-
 # Context: user@hostname (who am I and where am I)
-# prompt_context() {
-#   local user=`whoami`
-
-#   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-#     prompt_segment $PRIMARY_FG default "  " # %(!.%{%F{yellow}%}.)$user@%m
-#   fi
-# }
 
 prompt_context() {
-  local user=`whoami`
-
-  if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-    prompt_segment $PRIMARY_FG default " ${ICON} "
-  fi
+  # local user=`whoami`
+  # if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
+    prompt_segment $PRIMARY_FG default " ${ICON} " # %(!.%{%F{yellow}%}.)$user@%m "
+  # fi
 }
 
 
@@ -129,16 +130,16 @@ prompt_git() {
   ref="$vcs_info_msg_0_"
   if [[ -n "$ref" ]]; then
     if is_dirty; then
-      color=209	#ff875f
+      color=209
       ref="${ref} $EDIT "
     else
-      color=100 
-      ref="${ref} $IDENTICAL "
+      color=107 
+      ref="${ref} $IDEN "
     fi
     if [[ "${ref/.../}" == "$ref" ]]; then
-      ref="$BRANCH $ref"
+      ref="$BRAN $ref"
     else
-      ref="$DETACHED ${ref/.../}"
+      ref="$DETA ${ref/.../}"
     fi
     prompt_segment $color $PRIMARY_FG
     print -n " $ref"
@@ -151,17 +152,17 @@ prompt_dir() {
 }
 
 # Status:
-# - was there an error
 # - am I root
+# - was there an error
+##   [[ $RETVAL -ne 0 ]] && symbols+="%F{0}$ERRO%f"
+##   [[ -n "$symbols" ]] && prompt_segment 202 default " $symbols "
 # - are there background jobs?
-prompt_status() {
-  local symbols
-  symbols=()
-  # [[ $RETVAL -ne 0 ]] && symbols+="%B%F{124}%f%b"
-  [[ $UID -eq 0 ]] && symbols+="%B%F{221}%f%b"
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%B%F{221}%f%b"
-
-  [[ -n "$symbols" ]] && prompt_segment $PRIMARY_FG default " $symbols "
+##   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%F{0}$GEAR%f"
+##   [[ -n "$symbols" ]] && prompt_segment 148 default " $symbols "
+prompt_status_root() {
+  local symbols=()
+  [[ $UID -eq 0 ]] && symbols+="%F{0}$ROOT%f"
+  [[ -n "$symbols" ]] && prompt_segment 227 default " $symbols "
 }
 
 # Display current virtual environment
@@ -185,6 +186,7 @@ prompt_dbox_main() {
 prompt_dbox_precmd() {
   vcs_info
   PROMPT='%{%f%b%k%}$(prompt_dbox_main) '
+  # RPROMPT="%T"
 }
 
 prompt_dbox_setup() {
