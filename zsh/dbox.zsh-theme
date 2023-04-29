@@ -41,45 +41,46 @@ IDEN="\u2262"
 
 
 # Dist icons
-case $(uname) in
-  Linux)
-  	local os_release_id
-        if [[ -r /etc/os-release ]]; then
-          local lines=(${(f)"$(</etc/os-release)"})
-          lines=(${(@M)lines:#ID=*})
-          (( $#lines == 1 )) && os_release_id=${lines[1]#ID=}
-        elif [[ -e /etc/artix-release ]]; then
-          os_release_id=artix
-        fi
+if [[ $(uname) == Linux && $(uname -o) == Android ]]; then
+    ICON="\uf17b"
+else
+    os='Linux'
+    local os_release_id
+    if [[ -r /etc/os-release ]]; then
+        local lines=(${(f)"$(</etc/os-release)"})
+        lines=(${(@M)lines:#ID=*})
+        (( $#lines == 1 )) && os_release_id=${lines[1]#ID=}
+    elif [[ -e /etc/artix-release ]]; then
+        os_release_id=artix
+    fi
     case $os_release_id in
-      *Arch*) ICON="\uf303" ;;
-      *Debian*) ICON="\uebc5" ;;
-      *Raspbian*) ICON="\uf315" ;;
-      *Ubuntu*) ICON="\uebc9" ;;
-      *ElementaryOS*) ICON="\uf309" ;;
-      *Fedora*) ICON="\uf30a" ;;
-      *CoreOS*) ICON="\uf305" ;;
-      *Kali*) ICON="\uf327" ;;
-      *Gentoo*) ICON="\udb82\udce8" ;;
-      *Mageia*) ICON="\uf310" ;;
-      *CentOS*) ICON="\uf304" ;;
-      *openSUSE*) ICON="\uf314" ;;
-      *Sabayon*) ICON="\uf317" ;;
-      *Slackware*) ICON="\uf318" ;;
-      *LinuxMint*) ICON="\udb82\udced" ;;
-      *Alpine*) ICON="\uf300" ;;
-      *AOSC*) ICON="\uf301" ;;
-      *NixOS*) ICON="\uf313" ;;
-      *Devuan*) ICON="\uf307" ;;
-      *Manjaro*) ICON="\uf312" ;;
-      *Void*) ICON="\uf32e" ;;
-      *Artix*) ICON="\uf31f" ;;
-      *) ICON="\ue712" ;;
+        *arch*) ICON="\uf303" ;;
+        *debian*) ICON="\uebc5" ;;
+        *raspbian*) ICON="\uf315" ;;
+        *ubuntu*) ICON="\uebc9" ;;
+        *elementaryos*) ICON="\uf309" ;;
+        *fedora*) ICON="\uf30a" ;;
+        *coreos*) ICON="\uf305" ;;
+        *kali*) ICON="\uf327" ;;
+        *gentoo*) ICON="\udb82\udce8" ;;
+        *mageia*) ICON="\uf310" ;;
+        *centos*) ICON="\uf304" ;;
+        *opensuse*) ICON="\uf314" ;;
+        *sabayon*) ICON="\uf317" ;;
+        *slackware*) ICON="\uf318" ;;
+        *linuxmint*) ICON="\udb82\udced" ;;
+        *alpine*) ICON="\uf300" ;;
+        *aosc*) ICON="\uf301" ;;
+        *nixos*) ICON="\uf313" ;;
+        *devuan*) ICON="\uf307" ;;
+        *manjaro*) ICON="\uf312" ;;
+        *void*) ICON="\uf32e" ;;
+        *artix*) ICON="\uf31f" ;;
+        *) ICON="\ue712" ;;
     esac
-    ;;
-  Darwin) ICON="\uf302" ;;
-  *) ICON="\ue712" ;;
-esac
+fi
+
+
 
 
 # Begin a segment
