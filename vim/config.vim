@@ -1,24 +1,33 @@
-" Опции файловой системы:
-set autoread                " Автоматически перезагружать файлы, измененные другими программами
-set noswapfile              " Не создавать файлы обмена
+" File system options:
+set autoread                " Automatically restart files changed by other programs
+set noswapfile              " Do not create exchange files
 
-" Опции звукового сигнала:
-set noerrorbells            " Отключить звуковые сигналы ошибок
-set visualbell              " Использовать визуальный сигнал вместо звукового
+" Sound signal options:
+set noerrorbells            " Disconnect the sound signals of errors
+set visualbell              " Use a visual signal instead of a sound
 
-" Опции отображения:
-set number                  " Показывать номера строк
-set numberwidth=3           " Ширина колонки номера строк
-set nowrap                  " Отключить перенос строк
-set showcmd                 " Показывать в командной строке набираемую команду
-set tabstop=4               " Ширина табуляции в пробелах
-set shiftwidth=4            " Ширина отступа при использовании табуляции
+" Display options:
+set number                  " Show the lines
+set numberwidth=3           " The width of the column number
+set nowrap                  " Disconnect the transfer of lines
+set showcmd                 " Show on the command line we dial the command
+set tabstop=4               " Stage width in spaces
+set shiftwidth=4            " Speaking width when using stalie
 
-" Опции сохранения:
-set history=1000            " Хранить 1000 команд в истории
-set nobackup                " Не создавать резервные копии файлов
-set nowritebackup           " Не создавать резервные копии файлов перед сохранением
+" Save options:
+set history=1000            " Store 1000 teams in history
+set nobackup                " Do not create backups of files
+set nowritebackup           " Do not create backups of files before saving
 
-" Опции синтаксической подсветки и автоматического форматирования:
-syntax on                   " Включить синтаксическую подсветку
-filetype plugin indent on   " Включить автоматическое определение типа файла и использование соответствующих опций
+" Options of syntactic backlight and automatic formatting:
+syntax on                   " Turn on syntactic backlight
+filetype plugin indent on   " Enable automatic defining the file type and the use of appropriate options
+
+" Lightline -- https://github.com/itchyny/lightline.vim
+set laststatus=2
+set noshowmode
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
