@@ -1,4 +1,9 @@
 #!/bin/bash
+#     __  __             ___
+#    / /_/ /_  ___  ____/ /_/_______
+#   / __/ __ \/ _ \/ __  / / ___/ _ \
+#  / /_/ / / /  __/ /_/ / /__  /  __/
+#  \__/_/ /_/\___/\__,_/_/____/\___/
 
 current_shell=$(basename "$SHELL")
 red=$(tput setaf 1)
@@ -6,10 +11,10 @@ green=$(tput setaf 2)
 reset=$(tput sgr0)
 
 # Check updates
-# echo "Updating the package list..."
-# sudo apt update
-# echo "System update..."
-# sudo apt upgrade -y
+echo "Updating the package list..."
+sudo apt update
+echo "System update..."
+sudo apt upgrade -y
 
 echo ""
 echo -e "\033[1mInstalling useful packages...\033[0m"
@@ -165,3 +170,5 @@ relink ~/dotfiles/zsh/zshrc ~/.zshrc
 relink ~/dotfiles/zsh/dbox.zsh-theme ~/.oh-my-zsh/custom/themes/dbox.zsh-theme
 relink ~/dotfiles/vim ~/.vim
 relink ~/dotfiles/vim/vimrc ~/.vimrc
+relink ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+relink ~/dotfiles/tmux ~/.tmux
