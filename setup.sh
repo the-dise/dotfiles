@@ -1,48 +1,44 @@
 #!/bin/bash
-#     __  __             ___
-#    / /_/ /_  ___  ____/ /_/_______
-#   / __/ __ \/ _ \/ __  / / ___/ _ \
-#  / /_/ / / /  __/ /_/ / /__  /  __/
-#  \__/_/ /_/\___/\__,_/_/____/\___/
 
+# Global variables
 current_shell=$(basename "$SHELL")
 red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
 
-# Check updates
-echo "Updating the package list..."
-sudo apt update
-echo "System update..."
-sudo apt upgrade -y
+# Function to check the Linux distribution
+check_system() {
+    if [ -f "/etc/os-release" ]; then
+        . /etc/os-release
+        if [ "$ID" != "ubuntu" ] && [ "$ID" != "debian" ]; then
+            echo "This script is intended to run only on Debian-based systems."
+            exit 1
+        fi
+    else
+        echo "Unable to determine the Linux distribution. This script requires Ubuntu or Debian."
+        exit 1
+    fi
+}
 
-echo ""
-echo -e "\033[1mInstalling useful packages...\033[0m"
+check_system
+
+# Check updates
+echo -e "\033[1mUpdating the package list and updating the system...\033[0m"
+sudo apt update && apt upgrade -y
 
 # Checking for a package and installing it (if not installed)
-#!/bin/bash
-
-# Проверка наличия пакета и его установка (если не установлен)
 check_and_install_package() {
     package_name=$1
     if ! command -v "$package_name" &> /dev/null; then
-    # if ! dpkg -s "$package_name" >/dev/null 2>&1; then
-        echo -n "Installing the package $package_name"
-        (
-        while true; do
-            echo -n "."
-            sleep 0.5
-        done
-    ) &
+        echo -n "Installing the package $package_name..."
         sudo apt install -y "$package_name" > /dev/null 2>&1
-         kill $! >/dev/null 2>&1
-        echo -e "\nPackage $package_name is installed."
+        echo "done."
     else
         echo "Package $package_name is already installed."
     fi
 }
 
-# Checking and installing packages
+echo -e "\033[1mInstalling useful packages...\033[0m"
 check_and_install_package "curl" # scripts to transfer data
 check_and_install_package "zsh" # unix shell
 check_and_install_package "tmux" # terminal multiplexer
@@ -51,91 +47,17 @@ check_and_install_package "vim" # highly configurable text editor
 check_and_install_package "htop" # interactive process viewer
 check_and_install_package "exa" # modern replacement for ls
 
-echo ""
 echo -e "\033[1mInstall ZSH as default shell and install Oh My ZSH... \033[0m"
 
-# Checking Oh My Zsh Availability
+# Installing zsh by default
+chsh -s /bin/zsh
+
+# Checking Oh My Zsh Availability and install Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Oh My Zsh не установлен в системе."
-
-    # Installation offer Oh My Zsh
-    read -p "Do you want to install Oh My Zsh? (Y/n): " answer
-
-    case "$answer" in
-        [yY] | "" )
-            # Install Oh My Zsh
-            sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-            echo "Oh My Zsh installed."
-            ;;
-        *)
-            echo "Installation Oh My Zsh has been cancelled."
-            ;;
-    esac
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
     echo "Oh My Zsh is already installed on the system."
 fi
-
-
-case "$current_shell" in
-  bash)
-    read -p "Current default shell is ${red}bash${reset}. Do you want to set ${green}zsh${reset} as the default shell? (y/n): " answer
-
-    case "$answer" in
-      y|Y)
-        # Installing zsh by default
-        chsh -s /bin/zsh
-
-        if [ $? -eq 0 ]; then
-          echo -e "Default shell has been set to ${green}zsh${reset}."
-          read -p "Shell change requires a restart. Restart now? (y/n): " restart
-
-          case "$restart" in
-            y|Y)
-              exec /bin/zsh
-              ;;
-            *)
-              ;;
-          esac
-        else
-          echo -e "Failed to set default shell to ${green}zsh${reset}."
-        fi
-        ;;
-      *)
-        echo -e "Default shell remains as ${red}bash${reset}."
-        ;;
-    esac
-    ;;
-  zsh)
-    read -p "Current default shell is ${green}zsh${reset}. Do you want to set ${red}bash${reset} as the default shell? (y/n): " answer
-
-    case "$answer" in
-      y|Y)
-        # Installing bash by default
-        chsh -s /bin/bash
-
-        if [ $? -eq 0 ]; then
-          echo -e "Default shell has been set to ${red}bash${reset}."
-          read -p "Shell change requires a restart. Restart now? (y/n): " restart
-
-          case "$restart" in
-            y|Y)
-              exec /bin/bash
-              ;;
-            *)
-              ;;
-          esac
-        else
-          echo -e "Failed to set default shell to ${red}bash${reset}."
-        fi
-        ;;
-      *)
-        echo -e "Default shell remains as ${green}zsh${reset}."
-        ;;
-    esac
-    ;;
-  *)
-    echo "Unsupported shell: $current_shell"
-    ;;
 
 # Install oh My ZSH plugins
 check_and_install_plugin() {
@@ -173,3 +95,5 @@ relink ~/dotfiles/vim ~/.vim
 relink ~/dotfiles/vim/vimrc ~/.vimrc
 relink ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 relink ~/dotfiles/tmux ~/.tmux
+
+exec zsh
