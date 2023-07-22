@@ -11,16 +11,22 @@ This repository also includes a customized version of the Agnoster theme, called
 ## Installation
 
 To use these dotfiles, you need to clone this repository to your home directory:
-
 ```
 $ git clone https://github.com/the-dise/dotfiles.git ~/dotfiles
+$ cd ~/dotfiles 
+$ git submodule init 
+$ git submodule update
+$ chmod +x setup.sh
+```
+
+One line install:
+```
+$ git clone https://github.com/the-dise/dotfiles.git ~/dotfiles && cd ~/dotfiles && git submodule init && git submodule update && chmod +x setup.sh
 ```
 
 Then, you need to run the `setup.sh` script to symlink the dotfiles to their correct locations in your home directory:
 
 ```
-$ cd ~/dotfiles
-$ chmod +x setup.sh
 $ ./setup.sh
 ```
 
