@@ -46,6 +46,8 @@ check_and_install_package "git" # version control system
 check_and_install_package "vim" # highly configurable text editor 
 check_and_install_package "htop" # interactive process viewer
 check_and_install_package "exa" # modern replacement for ls
+check_and_install_package "ncdu" # disk utility for unix systems
+check_and_install_package "batcat" # cat clone with syntax highlighting
 
 echo -e "\033[1mInstall ZSH as default shell and install Oh My ZSH... \033[0m"
 
