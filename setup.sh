@@ -43,12 +43,13 @@ check_and_install_package() {
 }
 
 # Checking and installing packages
-check_and_install_package "curl"
-check_and_install_package "zsh"
-check_and_install_package "tmux"
-check_and_install_package "git"
-check_and_install_package "vim"
-check_and_install_package "htop"
+check_and_install_package "curl" # scripts to transfer data
+check_and_install_package "zsh" # unix shell
+check_and_install_package "tmux" # terminal multiplexer
+check_and_install_package "git" # version control system
+check_and_install_package "vim" # highly configurable text editor 
+check_and_install_package "htop" # interactive process viewer
+check_and_install_package "exa" # modern replacement for ls
 
 echo ""
 echo -e "\033[1mInstall ZSH as default shell and install Oh My ZSH... \033[0m"
