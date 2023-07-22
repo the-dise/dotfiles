@@ -35,7 +35,17 @@ These dotfiles are based on the dotfiles of various people on the internet. Some
 
 * https://github.com/agnoster/agnoster-zsh-theme
 * https://github.com/robbyrussell/oh-my-zsh
-
+* https://github.com/b0o/tmux-autoreload
+* https://github.com/tmux-plugins/tmux-continuum
+* https://github.com/noscript/tmux-mighty-scroll
+* https://github.com/tmux-plugins/tmux-resurrect
+* https://github.com/tmux-plugins/tmux-sensible
+* https://github.com/tmux-plugins/tmux-sessionist
+* https://github.com/tmux-plugins/tmux-sidebar
+* https://github.com/jimeh/tmux-themepack
+* https://github.com/tmux-plugins/tpm
+* https://github.com/christoomey/vim-tmux-navigator
+  
 ## License
 
 These dotfiles are released under the MIT License. See the LICENSE file for details.
