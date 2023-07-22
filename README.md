@@ -35,6 +35,7 @@ These dotfiles are based on the dotfiles of various people on the internet. Some
 
 * https://github.com/agnoster/agnoster-zsh-theme
 * https://github.com/robbyrussell/oh-my-zsh
+* https://github.com/itchyny/lightline.vim
 * https://github.com/b0o/tmux-autoreload
 * https://github.com/tmux-plugins/tmux-continuum
 * https://github.com/noscript/tmux-mighty-scroll
