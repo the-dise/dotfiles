@@ -1,10 +1,12 @@
 # vim: ft=zsh
 
 # Alias Oh My Zsh
+
 alias zshconf="vim ~/.zshrc && exec zsh"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # Colorify
+
 alias l='ls --color=auto -tA'
 alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -lthN --color=auto --group-directories-first'
@@ -19,12 +21,15 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # https://github.com/yt-dlp/yt-dlp
-alias yt='yt-dlp --add-metadata -ic'   # Download video
+
+alias yt='yt-dlp --add-metadata -ic' # Download video
 alias yta='yt-dlp --add-metadata -xic' # Download audio
 
 # https://github.com/sharkdp/bat
+
 alias bat='batcat'
 
 # tmux sessions
+
 alias tsg='tmux attach-session -t General'
 alias tng='tmux new-session -s General'
