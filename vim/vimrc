@@ -5,6 +5,7 @@ let config_list = [
       \ 'config.vim',
       \ 'commands.vim',
       \ 'material.vim',
+      \ 'airline.vim',
       \ 'plugin.vim'
       \]
 for files in config_list
