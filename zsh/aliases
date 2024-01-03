@@ -7,12 +7,9 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # Colorify
 
-alias l='ls --color=auto -tA'
-alias ls='ls --color=auto --group-directories-first'
-alias ll='ls -lthN --color=auto --group-directories-first'
-alias lla='ls -alth --color=auto'
-alias lsa='ls -a --color=auto'
-alias exaa='exa -alh'
+alias l='exa'
+alias ls='exa -l'
+alias lsa='exa -la'
 
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} --exclude-dir={.bundle,node_modules}'
 

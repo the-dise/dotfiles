@@ -4,7 +4,6 @@ let g:vim_home = get(g:, 'vim_home', expand('~/.vim/'))
 let config_list = [
       \ 'config.vim',
       \ 'commands.vim',
-      \ 'material.vim',
       \ 'airline.vim',
       \ 'plugin.vim'
       \]
@@ -16,3 +15,5 @@ endfor
 
 " Set at the end to work around 'exrc'
 set secure
+
+colorscheme material

@@ -23,11 +23,8 @@ set nowritebackup           " Do not create backups of files before saving
 syntax on                   " Turn on syntactic backlight
 filetype plugin indent on   " Enable automatic defining the file type and the use of appropriate options
 
-" Lightline -- https://github.com/itchyny/lightline.vim
-set laststatus=2
-set noshowmode
+" NERDTree
+map <F2> :NERDTreeToggle<CR>
 
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
-
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
