@@ -24,7 +24,7 @@ alias yta='yt-dlp --add-metadata -xic' # Download audio
 
 # https://github.com/sharkdp/bat
 
-alias bat='batcat'
+alias cat='bat'
 
 # tmux sessions
 

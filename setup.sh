@@ -36,11 +36,11 @@ relink () {
 XDG_CONFIG_HOME=$XDG_CONFIG_HOME:=$HOME/.config # Setting the XDG_CONFIG_HOME variable
 
 # Recreating symbolic links
-relink ~/dotfiles/zsh/zshrc ~/.zshrc
-relink ~/dotfiles/zsh/dbox.zsh-theme ~/.oh-my-zsh/custom/themes/dbox.zsh-theme
-relink ~/dotfiles/vim ~/.vim
-relink ~/dotfiles/vim/vimrc ~/.vimrc
-relink ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
-relink ~/dotfiles/tmux ~/.tmux
+relink ~/.dotfiles/zsh/zshrc ~/.zshrc
+relink ~/.dotfiles/zsh/dbox.zsh-theme ~/.oh-my-zsh/custom/themes/dbox.zsh-theme
+relink ~/.dotfiles/vim ~/.vim
+relink ~/.dotfiles/vim/vimrc ~/.vimrc
+relink ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
+relink ~/.dotfiles/tmux ~/.tmux
 
 exec zsh
