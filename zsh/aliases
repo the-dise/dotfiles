@@ -1,12 +1,20 @@
 # vim: ft=zsh
 
-# Alias Oh My Zsh
+alias ..="cd .."
 
+# Alias Oh My Zsh
 alias zshconf="vim ~/.zshrc && exec zsh"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
-# Colorify
+# Git
+alias gs="git status"
+alias gp="git pull"
+alias gb="git branch"
+alias ga="git add ."
+alias gc="git commit -m $1"
 
+
+# Colorify
 alias l='exa'
 alias ls='exa -l'
 alias lsa='exa -la'
@@ -18,15 +26,12 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # https://github.com/yt-dlp/yt-dlp
-
 alias yt='yt-dlp --add-metadata -ic' # Download video
 alias yta='yt-dlp --add-metadata -xic' # Download audio
 
 # https://github.com/sharkdp/bat
-
 alias cat='bat'
 
 # tmux sessions
-
-alias tsg='tmux attach-session -t General'
-alias tng='tmux new-session -s General'
+alias tas="tmux attach-session -t $1"
+alias tns="tmux new-session -s $1"
