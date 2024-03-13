@@ -12,24 +12,38 @@ This repository also includes a customized version of the Agnoster theme, called
 
 To use these dotfiles, you need to clone this repository to your home directory:
 
+
+1. Install [oh-my-zsh](https://ohmyz.sh/#install):
+``` shell
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-$ git clone https://github.com/the-dise/dotfiles.git ~/dotfiles
+
+2. Clone this repo:
+``` shell
+$ git clone https://github.com/the-dise/dotfiles.git ~/.dotfiles
+```
+
+3. Init submodules
+   
+``` shell
 $ cd ~/dotfiles
 $ git submodule init && git submodule update
+```
+
+4. Run install script:
+``` shell
 $ chmod +x setup.sh
-```
-
-One line install:
-
-```
-$ git clone https://github.com/the-dise/dotfiles.git ~/dotfiles && cd ~/dotfiles && git submodule init && git submodule update && chmod +x setup.sh
-```
-
-Then, you need to run the `setup.sh` script to symlink the dotfiles to their correct locations in your home directory:
-
-```
 $ ./setup.sh
 ```
+
+5. Install Vim plugins:
+- Launch vim:
+- Write in command line `:PlugInstall`
+
+6. Install tmux plugins:
+- Launch tmux;
+- Press `prefix` + `I` 
+
 
 This script will create symlinks in your home directory for all the dotfiles in the repository. If you already have some of these dotfiles in your home directory, the script will ask you whether to overwrite them or not.
 
