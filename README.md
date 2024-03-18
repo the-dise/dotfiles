@@ -1,57 +1,51 @@
-# the_dise's dotfiles / dbox
+# the_dise's dotfiles
 
 <p align="center">
-	<img src="logo.png" />
+    <img src="logo.png" alt="dbox Logo"/>
 </p>
 
-This is a repository containing the dotfiles of the user 'the_dise'. Dotfiles are configuration files for various applications and utilities.
-
-This repository also includes a customized version of the Agnoster theme, called "dbox", which has a distinct and visually appealing appearance. The theme features a softer color scheme, with modified icons and other elements that enhance its aesthetic appeal.
+Welcome to the_dise's Dotfiles repository! This collection includes configuration files (dotfiles) for various applications and utilities, as well as a customized version of the Agnoster theme known as "dbox." The dbox theme offers a visually distinct appearance with a softer color scheme and modified icons, enhancing both functionality and aesthetics.
 
 ## Installation
 
-To use these dotfiles, you need to clone this repository to your home directory:
+To integrate these dotfiles into your system, follow these steps:
 
+1. **Install oh-my-zsh**: If not already installed, run the following command to install [oh-my-zsh](https://ohmyz.sh/#install):
+   ```shell
+   $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   ```
 
-1. Install [oh-my-zsh](https://ohmyz.sh/#install):
-``` shell
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
+2. **Clone this repository**: Clone the dotfiles repository to your home directory:
+   ```shell
+   $ git clone https://github.com/the-dise/dotfiles.git ~/.dotfiles
+   ```
 
-2. Clone this repo:
-``` shell
-$ git clone https://github.com/the-dise/dotfiles.git ~/.dotfiles
-```
+3. **Initialize submodules**: Move into the dotfiles directory and update submodules:
+   ```shell
+   $ cd ~/.dotfiles
+   $ git submodule init && git submodule update
+   ```
 
-3. Init submodules
-   
-``` shell
-$ cd ~/dotfiles
-$ git submodule init && git submodule update
-```
+4. **Run setup script**: Make the setup script executable and execute it:
+   ```shell
+   $ chmod +x setup.sh
+   $ ./setup.sh
+   ```
 
-4. Run install script:
-``` shell
-$ chmod +x setup.sh
-$ ./setup.sh
-```
+5. **Install Vim plugins**: Launch Vim and run the following command to install plugins:
+   - Enter command mode by pressing `:` and write `PlugInstall`
 
-5. Install Vim plugins:
-- Launch vim:
-- Write in command line `:PlugInstall`
+6. **Install tmux plugins**: Launch tmux and press `prefix` + `I` to install plugins.
 
-6. Install tmux plugins:
-- Launch tmux;
-- Press `prefix` + `I` 
-
-
-This script will create symlinks in your home directory for all the dotfiles in the repository. If you already have some of these dotfiles in your home directory, the script will ask you whether to overwrite them or not.
+The setup script will create symbolic links in your home directory for all the dotfiles in the repository. If any conflicting dotfiles exist, the script will prompt you to decide whether to overwrite them or not.
 
 ## Customization
 
-If you want to customize these dotfiles for your own use, you can do so by forking this repository and making changes to the files in your fork. You can also create new dotfiles for other applications or utilities by adding them to your fork.
+Feel free to customize these dotfiles to suit your preferences. Fork this repository to your own GitHub account and modify the files as needed. You can also add new dotfiles for other applications or utilities according to your requirements.
 
 ## Credits
+
+This project stands on the shoulders of giants. We extend our gratitude to the following projects and their contributors:
 
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 - [agnoster-zsh-theme](https://github.com/agnoster/agnoster-zsh-theme)
@@ -69,4 +63,4 @@ If you want to customize these dotfiles for your own use, you can do so by forki
 
 ## License
 
-These dotfiles are released under the MIT License. See the LICENSE file for details.
+These dotfiles are distributed under the MIT License. See the [LICENSE](LICENSE) file for details.
