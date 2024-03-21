@@ -6,23 +6,6 @@ red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
 
-# Install oh My ZSH plugins
-check_and_install_plugin() {
-    local plugin_name="$1"
-    local repo_url="$2"
-    local plugin_dir="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/$plugin_name"
-
-    if [ -d "$plugin_dir" ]; then
-        echo "The $plugin_name plugin already exists."
-    else
-        git clone "$repo_url" "$plugin_dir"
-    fi
-}
-
-check_and_install_plugin "zsh-autosuggestions" "https://github.com/zsh-users/zsh-autosuggestions.git"
-check_and_install_plugin "zsh-syntax-highlighting" "https://github.com/zsh-users/zsh-syntax-highlighting.git"
-
-
 # Install Dise's dotfiles
 relink () {
   local src="$1"
