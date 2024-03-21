@@ -3,6 +3,8 @@ export LANG="en_US.UTF-8"
 export EDITOR='vim'
 export VISUAL='vim'
 
+export DOTFILES=$HOME/.dotfiles
+
 # Optimize ZSH
 if [[ "$ZPROF" = true ]]; then
   zmodload zsh/zprof
@@ -13,32 +15,31 @@ stty -ixon
 # Setup Oh My Zsh
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="dbox"
-plugins=(git colorize zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git colorize)
 source $ZSH/oh-my-zsh.sh
 
-# Setup history
-. ~/.dotfiles/zsh/compinit
+source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Setup history
-. ~/.dotfiles/zsh/hist
+. $DOTFILES/zsh/compinit
+
+# Setup history
+. $DOTFILES/zsh/hist
 
 # Setup zsh styles
-. ~/.dotfiles/zsh/zstyles
-
-# Setup Prompt
-# . ~/.dotfiles/zsh/prompt
+. $DOTFILES/zsh/zstyles
 
 # Setup CDPATH for directory completion
-. ~/.dotfiles/zsh/cdpath
+. $DOTFILES/zsh/cdpath
 
 # Setup functions
-. ~/.dotfiles/zsh/funcs
+. $DOTFILES/zsh/funcs
 
 # Setup aliases
-. ~/.dotfiles/zsh/aliases
+. $DOTFILES/zsh/aliases
 
 
 if [[ "$ZPROF" = true ]]; then
   zprof
 fi
-
