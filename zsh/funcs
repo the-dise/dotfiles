@@ -49,18 +49,6 @@ docker-dev () {
   fi
 }
 
-# asdf () {
-#   echo "ASDF not loaded! Loading now..."
-#   unset -f asdf
-#   if [ -d "$HOME/.asdf" ]; then
-#     autoload -Uz bashcompinit
-#     bashcompinit
-#     . "$HOME/.asdf/asdf.sh"
-#     . "$HOME/.asdf/completions/asdf.bash"
-#     asdf "$@"
-#   fi
-# }
-
 lcflow () {
 	period=${1-"this month"}
 	ledger --current --invert --real --wide -s -X $ -S "amount" -p "$period" reg income expenses
