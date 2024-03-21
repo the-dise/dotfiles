@@ -1,9 +1,10 @@
 # vim: ft=zsh
 
+# Navigation
 alias ..="cd .."
 
-# Alias Oh My Zsh
-alias zshconf="vim ~/.zshrc && exec zsh"
+# Oh My Zsh
+alias zshrc="vim ~/.zshrc && exec zsh"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # Git
@@ -11,27 +12,47 @@ alias gs="git status"
 alias gp="git pull"
 alias gb="git branch"
 alias ga="git add ."
-alias gc="git commit -m $1"
-
+alias gc="git commit -m"
 
 # Colorify
 alias l='exa'
 alias ls='exa -l'
 alias lsa='exa -la'
 
+# General
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} --exclude-dir={.bundle,node_modules}'
-
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-# https://github.com/yt-dlp/yt-dlp
+# yt-dlp
 alias yt='yt-dlp --add-metadata -ic' # Download video
 alias yta='yt-dlp --add-metadata -xic' # Download audio
 
-# https://github.com/sharkdp/bat
+# bat
 alias cat='bat'
 
 # tmux sessions
-alias tas="tmux attach-session -t $1"
-alias tns="tmux new-session -s $1"
+alias tas="tmux attach-session -t"
+alias tns="tmux new-session -s"
+
+# System info
+alias n="neofetch"
+alias k="uname -rs"
+alias g="gnome-shell --version"
+alias age="stat / | grep Birth"
+
+# Package management
+alias up="sudo dnf upgrade --refresh --best --allowerasing -y && flatpak update -y"
+alias cc="sudo dnf autoremove && dnf clean all && flatpak uninstall --unused -y && flatpak remove --delete-data && sudo journalctl --vacuum-time=1weeks"
+alias c="clear"
+alias dnfr="sudo dnf autoremove"
+alias dnfs="dnf search"
+alias dnfi="sudo dnf install"
+alias fli="flatpak install --noninteractive -y flathub"
+alias flr="flatpak remove --noninteractive -y"
+alias fr="flatpak repair"
+alias fl="flatpak list"
+
+# File management
+alias sn="sudo nautilus"
