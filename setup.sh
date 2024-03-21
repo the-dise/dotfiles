@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Global variables
-current_shell=$(basename "$SHELL")
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-reset=$(tput sgr0)
-
 # Install Dise's dotfiles
 relink () {
   local src="$1"
