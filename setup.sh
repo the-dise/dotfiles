@@ -19,4 +19,16 @@ relink ~/.dotfiles/vim/vimrc ~/.vimrc
 relink ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 relink ~/.dotfiles/tmux ~/.tmux
 
+# Check if zsh-autosuggestions plugin directory exists
+if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
+    # Cloning zsh-autosuggestions plugin
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
+
+# Check if zsh-syntax-highlighting plugin directory exists
+if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
+    # Cloning zsh-syntax-highlighting plugin
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+fi
+
 exec zsh
