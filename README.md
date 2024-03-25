@@ -23,6 +23,7 @@ To integrate these dotfiles into your system, follow these steps:
 3. **Initialize submodules**: Move into the dotfiles directory and update submodules:
    ```shell
    $ cd ~/.dotfiles
+   $ git submodule init && git submodule update
    ```
 
 4. **Run setup script**: Make the setup script executable and execute it:
