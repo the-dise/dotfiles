@@ -128,10 +128,10 @@ prompt_git() {
   ref="$vcs_info_msg_0_"
   if [[ -n "$ref" ]]; then
     if is_dirty; then
-      color=209
+      color=209 # ff875f
       ref="${ref} $EDIT "
     else
-      color=107 
+      color=107 # 87af5f
       ref="${ref} $IDEN "
     fi
     if [[ "${ref/.../}" == "$ref" ]]; then
@@ -146,7 +146,7 @@ prompt_git() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment 73 $PRIMARY_FG ' %~ '
+  prompt_segment 73 $PRIMARY_FG ' %~ ' # 5fafaf
 }
 
 # Status:
@@ -160,7 +160,7 @@ prompt_dir() {
 prompt_status_root() {
   local symbols=()
   [[ $UID -eq 0 ]] && symbols+="%F{0}$ROOT%f"
-  [[ -n "$symbols" ]] && prompt_segment 227 default " $symbols "
+  [[ -n "$symbols" ]] && prompt_segment 227 default " $symbols " # ffff5f
 }
 
 # Display current virtual environment
