@@ -12,24 +12,23 @@ To integrate these dotfiles into your system, follow these steps:
 
 1. **Install oh-my-zsh**: If not already installed, run the following command to install [oh-my-zsh](https://ohmyz.sh/#install):
    ```shell
-   $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
    ```
 
 2. **Clone this repository**: Clone the dotfiles repository to your home directory:
    ```shell
-   $ git clone https://github.com/the-dise/dotfiles.git ~/.dotfiles
+   git clone https://github.com/the-dise/dotfiles.git ~/.dotfiles
    ```
 
 3. **Initialize submodules**: Move into the dotfiles directory and update submodules:
    ```shell
-   $ cd ~/.dotfiles
-   $ git submodule init && git submodule update
+   cd ~/.dotfiles
    ```
 
 4. **Run setup script**: Make the setup script executable and execute it:
    ```shell
-   $ chmod +x setup.sh
-   $ ./setup.sh
+   chmod +x setup.sh
+   ./setup.sh
    ```
 
 5. **Install Vim plugins**: Launch Vim and run the following command to install plugins:
