@@ -1,8 +1,5 @@
 # vim: ft=zsh
 
-alias ..="cd .."
-alias c="clear"
-
 # Oh My Zsh
 alias zshrc="vim ~/.zshrc && exec zsh"
 alias ohmyzsh="vim ~/.oh-my-zsh"
@@ -37,8 +34,6 @@ alias g="gnome-shell --version"
 alias age="stat / | grep Birth"
 
 # Package management
-alias dnfs="dnf search"
-alias dnfi="sudo dnf install"
 alias fli="flatpak install --noninteractive -y flathub"
 alias flr="flatpak remove --noninteractive -y"
 alias fr="flatpak repair"
@@ -46,5 +41,9 @@ alias fl="flatpak list"
 alias up="sudo dnf upgrade --refresh --best --allowerasing -y && flatpak update -y"
 alias cc="sudo dnf autoremove && dnf clean all && flatpak uninstall --unused -y && flatpak remove --delete-data && sudo journalctl --vacuum-time=1weeks"
 
-# File management
+
+# Etc
+alias ..="cd .."
+alias c="clear"
 alias sn="sudo nautilus"
+alias help="tldr"

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Install Dise's dotfiles
 relink () {
   local src="$1"
   local dst="$2"

@@ -16,14 +16,23 @@ stty -ixon
 
 # Setup Oh My Zsh
 ZSH_THEME="dbox"
-plugins=(git colorize)
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  colorize
+  1password
+  copypath
+  copyfile
+  dnf
+  qrcode
+  dnf
+  adb
+  emoji
+)
 source $ZSH/oh-my-zsh.sh
 
-# Source Plugins
-source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Setup history, zsh styles, and aliases
-. $DOTFILES/zsh/hist
-. $DOTFILES/zsh/zstyles
-. $DOTFILES/zsh/aliases
+. $DOTFILES/zsh/hist.zsh
+. $DOTFILES/zsh/zstyles.zsh
+. $DOTFILES/zsh/aliases.zsh
