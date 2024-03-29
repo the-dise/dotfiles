@@ -8,12 +8,16 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias l='exa'
 alias ls='exa -l'
 alias lsa='exa -la'
-alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} --exclude-dir={.bundle,node_modules}'
+alias grep='grep --color=auto'
 
 # General
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+# pbcopy
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
 
 # yt-dlp
 alias yt='yt-dlp --add-metadata -ic' # Download video
