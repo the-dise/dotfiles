@@ -64,3 +64,19 @@ alias cpuc="lscpu"
 alias w="wine --version"
 alias pc="inxi -Ixxx"
 alias net="inxi -Nxxx"
+
+# Quick go to USB devices
+_usb() {
+    local user
+    user=$(whoami)
+    local devices
+    devices=$(ls /run/media/$user/)
+    COMPREPLY=($(compgen -W "$devices" -- "${COMP_WORDS[COMP_CWORD]}"))
+}
+complete -F _usb usb
+
+usb() {
+    local user
+    user=$(whoami)
+    cd "/run/media/$user/$1" || return 1
+}
