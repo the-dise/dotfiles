@@ -5,8 +5,7 @@ alias zshrc="vim ~/.zshrc && exec zsh"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # Colorify
-alias l='exa'
-alias ls='exa -l'
+alias ls='exa'
 alias lsa='exa -la'
 alias grep='grep --color=auto'
 
