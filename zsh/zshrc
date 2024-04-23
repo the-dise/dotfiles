@@ -37,3 +37,4 @@ source $ZSH/oh-my-zsh.sh
 . $DOTFILES/zsh/hist.zsh
 . $DOTFILES/zsh/zstyles.zsh
 . $DOTFILES/zsh/aliases.zsh
+. $DOTFILES/zsh/completion.zsh
