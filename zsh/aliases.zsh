@@ -3,6 +3,7 @@
 # Oh My Zsh
 alias zshrc="vim ~/.zshrc && exec zsh"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshup="source ~/.zshrc"
 
 # Colorify
 alias ls='exa'
