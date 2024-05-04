@@ -14,10 +14,26 @@ set showcmd                 " Show on the command line we dial the command
 set tabstop=4               " Stage width in spaces
 set shiftwidth=4            " Speaking width when using stalie
 
+set softtabstop=4
+set mouse=a  " enable mouse
+set encoding=utf-8
+set cursorline
+set scrolloff=7
+
 " Save options:
 set history=1000            " Store 1000 teams in history
 set nobackup                " Do not create backups of files
 set nowritebackup           " Do not create backups of files before saving
+
+" for tabulation
+set smartindent
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set autoindent
+
+set fileformat=unix
+filetype indent on      " load filetype-specific indent files
 
 " Options of syntactic backlight and automatic formatting:
 syntax on                   " Turn on syntactic backlight
