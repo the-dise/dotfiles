@@ -64,6 +64,7 @@ This project stands on the shoulders of giants. We extend our gratitude to the f
 - [tmux-sidebar](https://github.com/tmux-plugins/tmux-sidebar)
 - [tmux-themepack](https://github.com/jimeh/tmux-themepack)
 - [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
+- [NormalNvim](https://github.com/NormalNvim/NormalNvim)
 
 ## License
 
