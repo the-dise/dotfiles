@@ -36,6 +36,11 @@ To integrate these dotfiles into your system, follow these steps:
 
 6. **Install tmux plugins**: Launch tmux and press `prefix` + `I` to install plugins.
 
+7. **Install logiopt config**: 
+   ```shell
+      sudo ln -s ~/.dotfiles/configs/logid.cfg /etc/logid.cfg
+   ``` 
+
 The setup script will create symbolic links in your home directory for all the dotfiles in the repository. If any conflicting dotfiles exist, the script will prompt you to decide whether to overwrite them or not.
 
 ## Customization
