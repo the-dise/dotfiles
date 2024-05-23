@@ -41,16 +41,12 @@ alias age="stat / | grep Birth"
 
 # Quick go to USB devices
 _usb() {
-    local user
-    user=$(whoami)
     local devices
-    devices=$(ls /run/media/$user/)
+    devices=$(ls /run/media/$(whoami)/)
     COMPREPLY=($(compgen -W "$devices" -- "${COMP_WORDS[COMP_CWORD]}"))
 }
 complete -F _usb usb
 
 usb() {
-    local user
-    user=$(whoami)
-    cd "/run/media/$user/$1" || return 1
+    cd "/run/media/$(whoami)/$1" || return 1
 }
