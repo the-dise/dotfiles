@@ -60,7 +60,13 @@ usb() {
 }
 
 # Fzf with ripgrep
-alias fzf-rg='
-    fzf-rg-helper() {
-        rg --files-with-matches --no-heading --line-number --color=always "$1" | fzf --ansi --preview="rg --color=always -n $1 {1}" --bind "enter:execute(rg --color=always -n $1 {1})"; 
-    }; fzf-rg-helper'
+fzf-rg() {
+    local query="$1"
+    rg --files-with-matches --no-heading --line-number --color=always "$query" | fzf --ansi --preview="rg --color=always -n $query {1}" --bind "enter:execute(rg --color=always -n $query {1})"
+}
+
+_complete_fzf_rg() {
+    COMPREPLY=()
+}
+
+complete -F _complete_fzf_rg fzf-rg
