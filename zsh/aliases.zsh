@@ -50,3 +50,15 @@ complete -F _usb usb
 usb() {
     cd "/run/media/$(whoami)/$1" || return 1
 }
+
+# Fzf with ripgrep
+fzf-rg() {
+    local query="$1"
+    rg --files-with-matches --no-heading --line-number --color=always "$query" | fzf --ansi --preview="rg --color=always -n $query {1}" --bind "enter:execute(rg --color=always -n $query {1})"
+}
+
+_complete_fzf_rg() {
+    COMPREPLY=()
+}
+
+complete -F _complete_fzf_rg fzf-rg
