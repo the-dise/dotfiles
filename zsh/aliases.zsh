@@ -7,6 +7,7 @@ alias :q="exit"
 alias cp='cp -i'
 alias mv='mv -i'
 alias vi='nvim'
+alias rm='rm -ri'
 
 # Clipboard operations
 alias copy='xsel --clipboard --input'
