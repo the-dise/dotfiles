@@ -1,31 +1,40 @@
--- HELLO, welcome to NormalNvim!
--- ---------------------------------------
--- This is the entry point of your config.
--- ---------------------------------------
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
+vim.g.mapleader = " "
+vim.o.scrolloff = 7
 
--- EVERY TIME NEOVIM OPENS:
--- Compile lua to bytecode if the nvim version supports it.
-if vim.loader and vim.fn.has "nvim-0.9.1" == 1 then vim.loader.enable() end
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
--- THEN:
--- Source config files by order.
-for _, source in ipairs {
-  "base.1-options",
-  "base.2-lazy",
-  "base.3-autocmds",
-  "base.4-mappings",
-} do
-  local status_ok, fault = pcall(require, source)
-  if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault) end
+if not vim.loop.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
 
--- ONCE ALL SOURCE FILES HAVE LOADED:
--- Load the color scheme defined in ./lua/1-options.lua
-if base.default_colorscheme then
-  if not pcall(vim.cmd.colorscheme, base.default_colorscheme) then
-    require("base.utils").notify(
-      "Error setting up colorscheme: " .. base.default_colorscheme,
-      vim.log.levels.ERROR
-    )
-  end
-end
+vim.opt.rtp:prepend(lazypath)
+
+local lazy_config = require "configs.lazy"
+
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+    config = function()
+      require "options"
+    end,
+  },
+
+  { import = "plugins" },
+}, lazy_config)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "nvchad.autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)
