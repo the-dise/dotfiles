@@ -14,8 +14,13 @@ alias copy='xsel --clipboard --input'
 alias paste='xsel --clipboard --output'
 
 # yt-dlp commands
-alias yt='yt-dlp --add-metadata -ic' # Download video
-alias yta='yt-dlp --add-metadata -xic' # Download audio
+export YT_DL_DOWNLOAD_PATH=~/Downloads
+
+# Download video with metadata
+alias yt='yt-dlp --add-metadata -ic -o "$YT_DL_DOWNLOAD_PATH/%(title)s.%(ext)s"'
+
+# Download audio with metadata
+alias yta='yt-dlp --add-metadata -xic -o "$YT_DL_DOWNLOAD_PATH/%(title)s.%(ext)s"'
 
 # Tmux sessions
 tas() {
@@ -37,7 +42,7 @@ alias up="sudo dnf upgrade --refresh --best --allowerasing -y && flatpak update 
 alias cc="sudo dnf autoremove && sudo dnf clean all && flatpak uninstall --unused -y && flatpak remove --delete-data && sudo journalctl --vacuum-time=1weeks"
 
 # Tarball extraction
-alias tarball="tar -C ~/Applications -xvf"
+alias tarball="tar -C ~/Develop/Apps -xvf"
 
 # Miscellaneous
 alias c="clear"
