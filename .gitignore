@@ -1,5 +1,4 @@
 tmux/plugins/
-vim/plugged/
 zsh/plugins/
 configs/ssh-config
 mpv/script-opts/memo-history.log
