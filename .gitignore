@@ -1,3 +1,4 @@
 tmux/plugins/
 confs/ssh-config
 mpv/history.log
+nvim/lazy-lock.json
