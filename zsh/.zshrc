@@ -41,6 +41,7 @@ bindkey '^[[1;5C' forward-word
 . $DOTFILES/zsh/history.zsh
 . $DOTFILES/zsh/zstyles.zsh
 . $DOTFILES/zsh/aliases.zsh
+. $DOTFILES/zsh/fzf.zsh
 
 # -- initialize completion ---------------------------------------------------
 autoload -Uz compinit

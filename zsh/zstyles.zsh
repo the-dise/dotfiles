@@ -13,5 +13,7 @@ zstyle ':completion:*descriptions' format "$fg[yellow]%B--- %d%b"               
 zstyle ':completion:*:descriptions' format '[%d]'                                # Set descriptions format to enable group support
 
 # -- fzf-tab styles ---------------------------------------------------------
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'    # Preview directory's content with eza
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons $realpath'                                              # Preview directory's content with eza
+zstyle ':fzf-tab:complete:fzf:*' fzf-preview 'eza -1 --color=always --icons $realpath'                                              # Preview directory's content with eza
 zstyle ':fzf-tab:*' switch-group '<' '>'                                         # Switch group using `<` and `>`
+zstyle ':fzf-tab:*' height '80%'                                                 # Set height of popup

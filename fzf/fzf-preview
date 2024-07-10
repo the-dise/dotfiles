@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+#
+# fzf-preview
+#
+# Required tools:
+#   - eza
+#   - bat
+#   - chafa, exiftool
+#
+# Source: https://github.com/unixorn/fzf-zsh-plugin
+#
+
+EXIT_UNHANDLED=10
+
+has_cmd() {
+  command -v "$1" >/dev/null 2>&1
+}
+
+mime=$(file -bL --mime-type "$1")  # e.g. 'application/pdf'
+category=${mime%%/*}
+# shellcheck disable=SC2034 # left for completion
+kind=${mime##*/}
+
+if [ -d "$1" ] && has_cmd eza; then
+  eza --git --header --long --color=always --icons "$1"
+elif [ "$category" = image ] && has_cmd chafa && has_cmd exiftool; then
+  chafa --size=73x "$1"
+  exiftool "$1"
+elif [ "$category" = text ] && has_cmd bat; then  
+	bat --style=numbers --color=always "$1"
+else
+  exit $EXIT_UNHANDLED
+fi

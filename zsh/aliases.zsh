@@ -53,7 +53,7 @@ alias dnfli="${dnfprog} list installed"     # List installed packages
 alias dnfgl="${dnfprog} grouplist"          # List package groups
 alias dnfmc="${dnfprog} makecache"          # Generate metadata cache
 alias dnfp="${dnfprog} info"                # Show package information
-alias dnfs="${dnfprog} search"              # Search package
+alias dnfs="pkgsearch"                      # Search package
 
 # -- DNF package management --------------------------------------------------
 alias dnfu="sudo ${dnfprog} upgrade"        # Upgrade package
