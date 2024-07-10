@@ -29,7 +29,8 @@ alias k='uname -rs'                        # Display kernel name and version
 alias age='stat / | grep Birth'            # Display system installation date
 
 # -- clipboard operations ----------------------------------------------------
-alias clipcopy='xsel --clipboard --input'  # Copy to clipboard
+alias pbcopy='xsel --clipboard --input'    # Copy to clipboard
+alias pbpaste='xsel --clipboard --output'  # Paste from clipboard
 
 # -- tmux session management -------------------------------------------------
 tas() { tmux attach-session -t "$1"; }
