@@ -14,6 +14,10 @@ alias l='eza --all --git --header --long --color=always --icons'
 alias ll='eza --git --header --color=always --icons'
 alias la='eza -all --git --header --long --color=always --icons'
 
+# -- colorize ----------------------------------------------------------------
+alias bat="bat --color=always"
+alias ncdu="ncdu --color=dark --extended --fast-ui-updates --enable-delete"
+
 # -- use neovim instead of vim -----------------------------------------------
 alias vi='nvim'
 alias vim='nvim'
