@@ -8,29 +8,36 @@ return {
   },
   {
     "christoomey/vim-tmux-navigator",
-    lazy = false
+    lazy = false,
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+    },
   },
   {
     "smoka7/multicursors.nvim",
     event = "VeryLazy",
     dependencies = {
-      'nvimtools/hydra.nvim',
+      "nvimtools/hydra.nvim",
     },
     opts = {},
-    cmd = { 
-      'MCstart',
-      'MCvisual',
-      'MCclear',
-      'MCpattern',
-      'MCvisualPattern',
-      'MCunderCursor'
+    cmd = {
+      "MCstart",
+      "MCvisual",
+      "MCclear",
+      "MCpattern",
+      "MCvisualPattern",
+      "MCunderCursor",
     },
     keys = {
       {
-        mode = { 'v', 'n' },
-        '<Leader>m',
-        '<cmd>MCstart<cr>',
-        desc = 'Create a selection for selected text or word under the cursor',
+        mode = { "v", "n" },
+        "<Leader>m",
+        "<cmd>MCstart<cr>",
+        desc = "Create a selection for selected text or word under the cursor",
       },
     },
   },
@@ -39,32 +46,55 @@ return {
     lazy = false,
     opts = {},
   },
-  -- These are some examples, uncomment them if you want to see them work!
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   config = function()
-  --     require("nvchad.configs.lspconfig").defaults()
-  --     require "configs.lspconfig"
-  --   end,
-  -- },
-  --
-  -- {
-  -- 	"williamboman/mason.nvim",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"lua-language-server", "stylua",
-  -- 			"html-lsp", "css-lsp" , "prettier"
-  -- 		},
-  -- 	},
-  -- },
-  --
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("nvchad.configs.lspconfig").defaults()
+      require "configs.lspconfig"
+    end,
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "prettier",
+      },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "typescript",
+        "javascript",
+        "go",
+      },
+    },
+  },
+  {
+    "folke/trouble.nvim",
+    lazy = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = false,
+    config = function()
+      require("todo-comments").setup()
+    end,
+  },
+  {
+    "Exafunction/codeium.vim",
+    lazy = false,
+  },
 }
