@@ -9,10 +9,10 @@ alias md='mkdir -p'
 alias rd='rmdir'
 
 # -- list directory contents -------------------------------------------------
-alias lsa='eza -lah'
-alias l='eza -lah'
-alias ll='eza -lh'
-alias la='eza -lAh'
+alias lsa='eza --all --git --header --long --color=always --icons'
+alias l='eza --all --git --header --long --color=always --icons'
+alias ll='eza --git --header --color=always --icons'
+alias la='eza -all --git --header --long --color=always --icons'
 
 # -- use neovim instead of vim -----------------------------------------------
 alias vi='nvim'
