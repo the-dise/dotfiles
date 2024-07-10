@@ -37,8 +37,12 @@ zinit snippet OMZP::colored-man-pages
 zinit snippet OMZP::brew
 
 # -- binds ------------------------------------------------------------------
-bindkey '^[[1;5D' backward-word
-bindkey '^[[1;5C' forward-word
+bindkey -e                              # Enable zsh keybindings
+
+bindkey '^[[1;5D' backward-word         # Ctrl + Arrow Left to move backward
+bindkey '^[[1;5C' forward-word          # Ctrl + Arrow Right to move forward
+
+bindkey '^[^?' backward-kill-word       # Alt + Backspace to delete the word 
 
 # -- setup history, zsh styles, and aliases ----------------------------------
 . $DOTFILES/zsh/history.zsh
