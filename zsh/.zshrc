@@ -10,6 +10,9 @@ export LC_ALL LANG EDITOR VISUAL DOTFILES PATH
 # -- initialize starship prompt ----------------------------------------------
 eval "$(starship init zsh)"
 
+# -- init brew ---------------------------------------------------------------  
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # -- setup zinit -------------------------------------------------------------
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -28,10 +31,10 @@ zinit load Freed-Wu/fzf-tab-source
 
 # -- add in snippets ---------------------------------------------------------
 zinit snippet OMZP::git
-zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::colorize
 zinit snippet OMZP::colored-man-pages
+zinit snippet OMZP::brew
 
 # -- binds ------------------------------------------------------------------
 bindkey '^[[1;5D' backward-word
