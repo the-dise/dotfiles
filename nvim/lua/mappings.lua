@@ -8,6 +8,11 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 -- quick file saving via ctrl+s
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
+-- close all tabs
+map("n", "<leader>cx", function()
+  require("nvchad.tabufline").closeAllBufs()
+end, { desc = "Close All Buffers" })
+
 -- vim like window switcher
 map({ "n", "v" }, "<c-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "Windows Left" })
 map({ "n", "v" }, "<c-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "Windows Right" })
