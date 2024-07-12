@@ -41,6 +41,9 @@ alias vim='nvim'
 alias c='clear'                            # Clear terminal
 alias sn='sudo nautilus'                   # Open Nautilus as root
 
+# -- mpv ---------------------------------------------------------------------
+mpv-torrent() { webtorrent "$1" --mpv --playlist; }
+
 # -- system info -------------------------------------------------------------
 alias ff='fastfetch'                       # Display system information
 alias ffa="fastfetch -c all.jsonc"
