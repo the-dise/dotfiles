@@ -28,8 +28,6 @@ fzf_default_opts+=(
     "--info=inline-right"
     "--height=80%"
     "--multi"
-    "--border=rounded"
-    "--border-label='   Search '"
     "--preview='${FZF_PREVIEW}'"
     "--preview-window='${FZF_PREVIEW_WINDOW}'"
     "--color=bg+:#313131,bg:#1e1e1e,spinner:#eeeeee,hl:#f38ba8"            # frame
