@@ -17,6 +17,7 @@ alias la='eza -all --git --header --long --color=always --icons'
 # -- colorize ----------------------------------------------------------------
 alias bat="bat --color=always"
 alias ncdu="ncdu --color=dark --extended --fast-ui-updates --enable-delete"
+alias grep="grep --color=always"
 
 # -- npm ---------------------------------------------------------------------
 alias nukenode="rm -rf package-lock.json && rm -rf node_modules"
