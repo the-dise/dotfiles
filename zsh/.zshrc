@@ -10,9 +10,6 @@ export LC_ALL LANG EDITOR VISUAL DOTFILES PATH
 # -- initialize starship prompt ----------------------------------------------
 eval "$(starship init zsh)"
 
-# -- init brew ---------------------------------------------------------------  
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # -- setup zinit -------------------------------------------------------------
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
