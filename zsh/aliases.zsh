@@ -54,9 +54,14 @@ alias pbpaste='xsel --clipboard --output'  # Paste from clipboard
 tas() { tmux attach-session -t "$1"; }
 tns() { tmux new-session -s "$1"; }
 
-alias def='if command -v tmux &> /dev/null && [ -n "$PS1" ] && \
- [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then \
- tmux attach-session -t default || tmux new-session -s default; fi'
+# -- default session on tmux -------------------------------------------------
+def() {
+    if command -v tmux &> /dev/null && [ -n "$PS1" ]; then
+        if [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+            tmux attach-session -t default || tmux new-session -s default
+        fi
+    fi
+}
 
 # -- determine DNF program version -------------------------------------------
 local dnfprog="dnf"
