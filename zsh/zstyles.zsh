@@ -1,4 +1,5 @@
 # -- styles settings ---------------------------------------------------------
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'                           # Case insensitive
 zstyle ':completion:*' menu select                                               # Enable menu selection for completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}                            # Use colors from LS_COLORS for completion list
 zstyle ':completion:*' verbose yes                                               # Enable verbose completion
