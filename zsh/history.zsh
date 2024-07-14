@@ -1,7 +1,7 @@
 # -- history settings --------------------------------------------------------
-SAVEHIST=1000                  # Number of history entries to save
 HISTSIZE=5000                  # Maximum number of lines of history to save in memory
 HISTFILE=~/.zhistory           # Location of the history file
+SAVEHIST=$HISTSIZE             # Number of history entries to save
 HISTDUP=erase                  # Erase duplicates in the history file
 
 # -- extended history options ------------------------------------------------
