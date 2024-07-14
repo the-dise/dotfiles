@@ -53,6 +53,7 @@ bindkey '^[^?' backward-kill-word       # Alt + Backspace to delete the word
 . $DOTFILES/zsh/fzf.zsh
 
 # -- initialize completion ---------------------------------------------------
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
+
+# -- sysinfo on startup ------------------------------------------------------
 fastfetch
