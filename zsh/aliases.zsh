@@ -2,6 +2,7 @@
 alias :q='exit'
 
 # -- file operations with safety prompts -------------------------------------
+alias ..='cd ..'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -ri'
