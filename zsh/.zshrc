@@ -36,6 +36,11 @@ zinit snippet OMZP::brew
 # -- binds ------------------------------------------------------------------
 bindkey -e                              # Enable zsh keybindings
 
+bindkey '^b' beginning-of-line
+bindkey '^e' end-of-line
+bindkey '^f' forward-word
+bindkey '^d' backward-word
+
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
