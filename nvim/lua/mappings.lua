@@ -13,6 +13,13 @@ map("n", "<leader>cx", function()
   require("nvchad.tabufline").closeAllBufs()
 end, { desc = "Close All Buffers" })
 
+-- alt-[1-9] switch tab
+for i = 1, 9, 1 do
+  vim.keymap.set("n", string.format("<A-%s>", i), function()
+    vim.api.nvim_set_current_buf(vim.t.bufs[i])
+  end)
+end
+
 -- vim like window switcher
 map({ "n", "v" }, "<c-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "Windows Left" })
 map({ "n", "v" }, "<c-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "Windows Right" })
