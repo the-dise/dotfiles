@@ -46,11 +46,11 @@ bindkey '^n' history-search-forward
 
 bindkey '^[^?' backward-kill-word       # Alt + Backspace to delete the word 
 
-# -- setup history, zsh styles, and aliases ----------------------------------
+# -- setup history, styles, aliases and plugins ------------------------------
 . $DOTFILES/zsh/history.zsh
 . $DOTFILES/zsh/zstyles.zsh
 . $DOTFILES/zsh/aliases.zsh
-. $DOTFILES/zsh/fzf.zsh
+. $DOTFILES/zsh/plugins/fzf/fzf.plugin.zsh
 
 # -- initialize completion ---------------------------------------------------
 autoload -Uz compinit && compinit
