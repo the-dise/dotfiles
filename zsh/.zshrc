@@ -1,4 +1,5 @@
 # -- set environment variables -----------------------------------------------
+AUTOSTART_TMUX=true
 LC_ALL="en_US.UTF-8"
 LANG="en_US.UTF-8"
 EDITOR='nvim'
@@ -51,6 +52,7 @@ bindkey '^[^?' backward-kill-word       # Alt + Backspace to delete the word
 . $DOTFILES/zsh/zstyles.zsh
 . $DOTFILES/zsh/aliases.zsh
 . $DOTFILES/zsh/plugins/fzf/fzf.plugin.zsh
+. $DOTFILES/zsh/plugins/tmux/tmux.plugin.zsh
 
 # -- initialize completion ---------------------------------------------------
 autoload -Uz compinit && compinit
