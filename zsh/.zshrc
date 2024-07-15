@@ -53,6 +53,7 @@ bindkey '^[^?' backward-kill-word       # Alt + Backspace to delete the word
 . $DOTFILES/zsh/aliases.zsh
 . $DOTFILES/zsh/plugins/fzf/fzf.plugin.zsh
 . $DOTFILES/zsh/plugins/tmux/tmux.plugin.zsh
+. $DOTFILES/zsh/plugins/dnf/dnf.plugin.zsh
 
 # -- initialize completion ---------------------------------------------------
 autoload -Uz compinit && compinit
