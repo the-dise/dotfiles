@@ -14,8 +14,8 @@ map("n", "<leader>ce", "<cmd>CodeiumEnable<CR>", { desc = "Enable Codeium autoco
 map("n", "<leader>cd", "<cmd>CodeiumDisable<CR>", { desc = "Disable Codeium autocompletion" })
 map("n", "<leader>ci", "<cmd>CodeiumInfo<CR>", { desc = "Show Codeium info" })
 
--- quick file saving via ctrl+s
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+-- quick file saving via space-w
+map("n", "<leader>w", "<cmd> w <cr>", { desc = "Save file" })
 
 -- close all tabs
 map("n", "<leader>cx", function()
