@@ -1,7 +1,7 @@
 # ~/.fzf.zsh
 
 # -- plugin's directory ------------------------------------------------------
-local FZF_PLUGINS="${0:h:h}/fzf"
+local FZF_PLUGINS="${0:h:h:h:h}/fzf"
 if [[ ! "$path" == *${FZF_PLUGINS}* ]]; then
   path+=(${FZF_PLUGINS})
 fi
