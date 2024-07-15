@@ -20,20 +20,6 @@ alias bat="bat --color=always"
 alias ncdu="ncdu --color=dark --extended --fast-ui-updates --enable-delete"
 alias grep="grep --color=always"
 
-# -- npm ---------------------------------------------------------------------
-alias nukenode="rm -rf package-lock.json && rm -rf node_modules"
-alias restnode="rm -rf package-lock.json && rm -rf node_modules && npm install"
-
-alias npmg="npm i -g "                    # Install dependencies globally
-alias npmS="npm i -S "                    # Add and save to dependencies in package.json
-alias npmD="npm i -D "                    # Install and save to dev-dependencies in your package.json
-alias npmE='PATH="$(npm bin)":"$PATH"'    # Execute command from node_modules folder based on current directory
-alias npmO="npm outdated"                 # Check which npm modules are outdated
-alias npmV="npm -v"                       # Check package versions
-alias npmL="npm list"                     # List packages
-alias npmst="npm start"                   # Run npm start
-alias npmt="npm test"                     # Run npm test
-
 # -- use neovim instead of vim -----------------------------------------------
 alias vi='nvim'
 alias vim='nvim'
