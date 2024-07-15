@@ -5,6 +5,15 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 -- map("i", "jk", "<ESC>")
 
+-- codium
+map("i", "<C-g>", function()
+  return vim.fn["codeium#Accept"]()
+end, { expr = true })
+
+map("n", "<leader>ce", "<cmd>CodeiumEnable<CR>", { desc = "Enable Codeium autocompletion" })
+map("n", "<leader>cd", "<cmd>CodeiumDisable<CR>", { desc = "Disable Codeium autocompletion" })
+map("n", "<leader>ci", "<cmd>CodeiumInfo<CR>", { desc = "Show Codeium info" })
+
 -- quick file saving via ctrl+s
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
