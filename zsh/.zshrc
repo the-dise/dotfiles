@@ -37,10 +37,8 @@ zinit snippet OMZP::sudo
 # -- binds ------------------------------------------------------------------
 bindkey -e                              # Enable zsh keybindings
 
-bindkey '^b' beginning-of-line
-bindkey '^e' end-of-line
-bindkey '^f' forward-word
-bindkey '^d' backward-word
+bindkey '^w' forward-word
+bindkey '^b' backward-word
 
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
