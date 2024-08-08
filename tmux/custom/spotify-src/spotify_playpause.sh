@@ -14,5 +14,5 @@ case "$playback" in
     *) playback="Unknown" ;;
 esac
 
-tmux display-message -t 5000 "${GREEN_PREFIX}${WHITE_ON_GREEN}󰓇 Spotify${GREEN_SUFFIX}${GREEN_PREFIX}${GREEN_SUFFIX} #[bold]$playback#[default] $status"
+tmux display-message -d 2000 "${GREEN_PREFIX}${WHITE_ON_GREEN}#[bold]󰓇 Spotify#[default]${GREEN_SUFFIX}${GREEN_PREFIX}${GREEN_SUFFIX} #[bold]$playback#[default] $status"
 
