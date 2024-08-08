@@ -21,6 +21,63 @@ _fzf_preview() {
 
 export FZF_PREVIEW="$(_fzf_preview)"
 
+# -- fzgrep ------------------------------------------------------------------
+fzgrep() {
+    local editor="$EDITOR"
+    local pattern=""
+    local preview_cmd="bat --style=numbers --color=always {}"
+    
+    # Help message
+    show_help() {
+        echo "Usage: fzgrep [-e editor | --editor editor] <search_pattern>"
+        echo ""
+        echo "Options:"
+        echo "  -e, --editor  Specify the editor to open the files (default: \$EDITOR)"
+        echo "  --help        Show this help message"
+        return 0
+    }
+
+    # Checking the availability of BAT
+    if ! command -v bat &> /dev/null; then
+        preview_cmd="cat {}"
+    fi
+    
+    # Options
+    while [[ "$#" -gt 0 ]]; do
+        case "$1" in
+            -e|--editor)
+                shift
+                editor="$1"
+                ;;
+            --help)
+                show_help
+                return 0
+                ;;
+            -*)
+                echo "Unknown option: $1"
+                show_help
+                return 1
+                ;;
+            *)
+                pattern="$1"
+                break
+                ;;
+        esac
+        shift
+    done
+    
+    if [ -z "$pattern" ]; then
+        echo "Error: search pattern is required"
+        show_help
+        return 1
+    fi
+    
+    rg --files-with-matches --no-heading --line-number --color=auto "$pattern" | \
+    fzf --delimiter ':' --nth 2.. --preview "$preview_cmd" | \
+    cut -d':' -f1 | \
+    xargs -r "$editor"
+}
+
 # -- fzf options -------------------------------------------------------------
 fzf_default_opts+=(
   "--layout=reverse"
