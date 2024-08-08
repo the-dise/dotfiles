@@ -19,6 +19,7 @@ alias la='eza -all --git --header --long --color=always --icons'
 alias bat="bat --color=always"
 alias ncdu="ncdu --color=dark --extended --fast-ui-updates --enable-delete"
 alias grep="grep --color=always"
+alias diff="diff --color=auto"
 
 # -- use neovim instead of vim -----------------------------------------------
 alias vi='nvim'
