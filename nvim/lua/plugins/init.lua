@@ -97,4 +97,11 @@ return {
     "Exafunction/codeium.vim",
     lazy = false,
   },
+  -- Syntax plugins
+  { "cespare/vim-toml" },
+  { "plasticboy/vim-markdown" },
+  { "jceb/vim-orgmode" },
+  { "nvim-treesitter/playground" },
+  { "TovarishFin/vim-solidity" },
+  { "NoahTheDuke/vim-just" },
 }
