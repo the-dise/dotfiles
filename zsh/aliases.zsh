@@ -10,7 +10,7 @@ alias md='mkdir -p'
 alias rd='rmdir'
 
 # -- list directory contents -------------------------------------------------
-alias l='eza --all --git --header --long --color=always --icons'
+alias l='eza --git --header --long --color=always --icons'
 alias ll='eza --git --header --color=always --icons'
 alias la='eza -all --git --header --long --color=always --icons'
 
