@@ -79,6 +79,7 @@ return {
         "go",
       },
     },
+    run = ":TSUpdate",
   },
   {
     "folke/trouble.nvim",
