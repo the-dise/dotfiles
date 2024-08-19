@@ -3,7 +3,7 @@ return {
     "stevearc/conform.nvim",
     event = "BufWritePre",
     config = function()
-      require "configs.conform"
+      require("configs.conform")
     end,
   },
   {
@@ -20,9 +20,7 @@ return {
   {
     "smoka7/multicursors.nvim",
     event = "VeryLazy",
-    dependencies = {
-      "nvimtools/hydra.nvim",
-    },
+    dependencies = { "nvimtools/hydra.nvim" },
     opts = {},
     cmd = {
       "MCstart",
@@ -50,7 +48,7 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
+      require("configs.lspconfig")
     end,
   },
   {
