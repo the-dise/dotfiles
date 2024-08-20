@@ -27,6 +27,11 @@ zinit load zsh-users/zsh-autosuggestions
 zinit load Aloxaf/fzf-tab
 zinit load Freed-Wu/fzf-tab-source
 
+# -- load vi mode ------------------------------------------------------------
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+
 # -- add in snippets ---------------------------------------------------------
 zinit snippet OMZP::git
 zinit snippet OMZP::command-not-found
