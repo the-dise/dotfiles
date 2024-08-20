@@ -34,17 +34,6 @@ zinit snippet OMZP::colorize
 zinit snippet OMZP::colored-man-pages
 zinit snippet OMZP::sudo
 
-# -- binds ------------------------------------------------------------------
-bindkey -e                              # Enable zsh keybindings
-
-bindkey '^w' forward-word
-bindkey '^b' backward-word
-
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
-
-bindkey '^[^?' backward-kill-word       # Alt + Backspace to delete the word 
-
 # -- setup history, styles, aliases and plugins ------------------------------
 . $DOTFILES/zsh/history.zsh
 . $DOTFILES/zsh/zstyles.zsh
