@@ -24,6 +24,14 @@ alias diff="diff --color=auto"
 alias vi='nvim'
 alias vim='nvim'
 
+fzf_open_nvim() {
+  local file
+  file=$(fzf) || return 1
+  [ -n "$file" ] && nvim "$file"
+}
+
+alias vifz='fzf_open_nvim'
+
 # -- miscellaneous -----------------------------------------------------------
 alias c='clear'                            # Clear terminal
 alias sn='sudo nautilus'                   # Open Nautilus as root
