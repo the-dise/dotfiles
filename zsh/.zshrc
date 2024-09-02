@@ -9,8 +9,8 @@ PATH="$PATH:$HOME/.local/bin"
 export LC_ALL LANG EDITOR VISUAL DOTFILES PATH
 
 # Load local environment variables
-if [ -f "$HOME/.zsh_local" ]; then
-    . "$HOME/.zsh_local"
+if [ -f "$DOTFILES/zsh/.zsh_local" ]; then
+    . "$DOTFILES/zsh/.zsh_local"
 fi
 
 # -- initialize starship prompt ----------------------------------------------
