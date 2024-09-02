@@ -18,3 +18,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons $real
 zstyle ':fzf-tab:complete:fzf:*' fzf-preview 'eza -1 --color=always --icons $realpath'                                              # Preview directory's content with eza
 zstyle ':fzf-tab:*' switch-group '<' '>'                                         # Switch group using `<` and `>`
 zstyle ':fzf-tab:*' height '80%'                                                 # Set height of popup
+
+# -- docker option-stacking -------------------------------------------------
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
