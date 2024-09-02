@@ -37,6 +37,10 @@ zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
+# -- load fzf search plugin --------------------------------------------------
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
+
 # -- add in snippets ---------------------------------------------------------
 zinit snippet OMZP::git
 zinit snippet OMZP::command-not-found
