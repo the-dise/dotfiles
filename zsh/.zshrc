@@ -47,6 +47,8 @@ zinit snippet OMZP::command-not-found
 zinit snippet OMZP::colorize
 zinit snippet OMZP::colored-man-pages
 zinit snippet OMZP::sudo
+zinit snippet OMZP::docker
+zinit snippet OMZP::docker-compose
 
 # -- setup history, styles, aliases and plugins ------------------------------
 . $DOTFILES/zsh/history.zsh
