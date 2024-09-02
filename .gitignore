@@ -3,3 +3,4 @@ confs/ssh-config
 mpv/history.log
 nvim/lazy-lock.json
 mpv/logs
+zsh/.zsh_local
