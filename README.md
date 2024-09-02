@@ -32,7 +32,7 @@ Ensure you have the following tools installed:
 1. **Clone the Repository**
 
    ```sh
-   git clone https://github.com/the_dise/dotfiles.git ~/.dotfiles
+   git clone https://github.com/the-dise/dotfiles.git ~/.dotfiles
    cd ~/.dotfiles
    ```
 
