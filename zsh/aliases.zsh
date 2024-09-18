@@ -24,7 +24,7 @@ alias diff="diff --color=auto"
 alias vi='nvim'
 alias vim='nvim'
 
-fzf_open_nvim() {
+fzf-nvim() {
   local file
   file=$(fzf) || return 1
   [ -n "$file" ] && nvim "$file"
