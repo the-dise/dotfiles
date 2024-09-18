@@ -102,13 +102,13 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
-"Documents" = "󰈤 "
-"Downloads" = "󰮏 "
-"Music" = "󰽴 "
-"Pictures" = "󰥶 "
-"Videos" = "󰯜 "
-"Develop" = "󰘦 "
-".dotfiles" = "󰘓 "
+"Documents" = "󰈤"
+"Downloads" = "󰮏"
+"Music" = "󰽴"
+"Pictures" = "󰥶"
+"Videos" = "󰯜"
+"Develop" = "󰘦"
+".dotfiles" = "󰘓"
 
 [git_branch]
 symbol = ""
@@ -125,7 +125,7 @@ style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [c]
-symbol = " "
+symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
@@ -145,12 +145,12 @@ style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [java]
-symbol = " "
+symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [kotlin]
-symbol = ""
+symbol = "󱈙"
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
