@@ -1,28 +1,41 @@
 # -- set environment variables -----------------------------------------------
-AUTOSTART_TMUX=true
-LC_ALL="en_US.UTF-8"
-LANG="en_US.UTF-8"
-EDITOR='nvim'
-VISUAL='nvim'
-DOTFILES="$HOME/.dotfiles"
-PATH="$PATH:$HOME/.local/bin"
-export LC_ALL LANG EDITOR VISUAL DOTFILES PATH
+export AUTOSTART_TMUX=true
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export EDITOR='nvim'
+export VISUAL='nvim'
+export DOTFILES="$HOME/.dotfiles"
+export ANDROID_HOME="$HOME/Android"
+
+# Correctly set GOPATH and add it to PATH
+export GOPATH="/usr/local/go/bin:$PATH"
+
+# Ensure ANDROID_NDK_HOME is correctly defined if used
+export ANDROID_NDK_HOME="$HOME/Android/ndk/27.1.12297006/"
+
+# Update PATH
+export PATH="$PATH:$HOME/.local/bin:$GOPATH/bin:$ANDROID_NDK_HOME"
 
 # Load local environment variables
 if [ -f "$DOTFILES/zsh/.zsh_local" ]; then
-    . "$DOTFILES/zsh/.zsh_local"
+    source "$DOTFILES/zsh/.zsh_local"
 fi
 
 # -- initialize starship prompt ----------------------------------------------
 eval "$(starship init zsh)"
 
 # -- setup zinit -------------------------------------------------------------
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+export ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [ ! -d "$ZINIT_HOME" ]; then
+    mkdir -p "$(dirname "$ZINIT_HOME")"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 source "${ZINIT_HOME}/zinit.zsh"
 
-(( ${+_comps} )) && _comps[zinit]=_zinit
+# Ensure _comps is defined before using
+if (( ${+_comps} )); then
+    _comps[zinit]=_zinit
+fi
 autoload -Uz _zinit
 
 # -- load plugins ------------------------------------------------------------
@@ -35,7 +48,7 @@ zinit load Freed-Wu/fzf-tab-source
 # -- load vi mode ------------------------------------------------------------
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 # -- load fzf search plugin --------------------------------------------------
 zinit ice lucid wait'0'
@@ -51,13 +64,13 @@ zinit snippet OMZP::z
 zinit snippet OMZP::docker
 zinit snippet OMZP::docker-compose
 
-# -- setup history, styles, aliases and plugins ------------------------------
-. $DOTFILES/zsh/history.zsh
-. $DOTFILES/zsh/zstyles.zsh
-. $DOTFILES/zsh/aliases.zsh
-. $DOTFILES/zsh/plugins/fzf/fzf.plugin.zsh
-. $DOTFILES/zsh/plugins/tmux/tmux.plugin.zsh
-. $DOTFILES/zsh/plugins/dnf/dnf.plugin.zsh
+# -- setup history, styles, aliases, and plugins ------------------------------
+source "$DOTFILES/zsh/history.zsh"
+source "$DOTFILES/zsh/zstyles.zsh"
+source "$DOTFILES/zsh/aliases.zsh"
+source "$DOTFILES/zsh/plugins/fzf/fzf.plugin.zsh"
+source "$DOTFILES/zsh/plugins/tmux/tmux.plugin.zsh"
+source "$DOTFILES/zsh/plugins/dnf/dnf.plugin.zsh"
 
 # -- initialize completion ---------------------------------------------------
 autoload -Uz compinit && compinit
