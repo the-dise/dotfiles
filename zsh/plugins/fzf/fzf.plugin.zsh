@@ -102,5 +102,19 @@ fzf_default_opts+=(
 export FZF_DEFAULT_OPTS=$(printf '%s\n' "${fzf_default_opts[@]}")
 
 # -- enable fzf fuzzy completion ---------------------------------------------
-[[ $- == *i* ]] && source "/usr/share/fzf/shell/completion.zsh" 2>/dev/null
-[[ $- == *i* ]] && source "/usr/share/fzf/shell/key-bindings.zsh"
+[[ $- == *i* ]] && {
+  if [[ -f "/usr/share/fzf/shell/completion.zsh" ]]; then
+    source "/usr/share/fzf/shell/completion.zsh"
+  elif [[ -f "/home/the_dise/.fzf/shell/completion.zsh" ]]; then
+    source "/home/the_dise/.fzf/shell/completion.zsh"
+  fi
+}
+
+[[ $- == *i* ]] && {
+  if [[ -f "/usr/share/fzf/shell/key-bindings.zsh" ]]; then
+    source "/usr/share/fzf/shell/key-bindings.zsh"
+  elif [[ -f "/home/the_dise/.fzf/shell/key-bindings.zsh" ]]; then
+    source "/home/the_dise/.fzf/shell/key-bindings.zsh"
+  fi
+}
+
