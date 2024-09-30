@@ -1,4 +1,4 @@
-# -- set environment variables -----------------------------------------------
+# -- set environment variables -------------------------------------------------
 export AUTOSTART_TMUX=true
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
@@ -6,55 +6,46 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export DOTFILES="$HOME/.dotfiles"
 export ANDROID_HOME="$HOME/Android"
+export ANDROID_NDK_HOME="$ANDROID_HOME/ndk/27.1.12297006"
 
-# Correctly set GOPATH and add it to PATH
-export GOPATH="/usr/local/go/bin:$PATH"
+# Correctly set GOPATH and add to PATH
+export GOPATH="/usr/local/go/bin"
+export PATH="$PATH:$HOME/.local/bin:$GOPATH:$ANDROID_NDK_HOME"
 
-# Ensure ANDROID_NDK_HOME is correctly defined if used
-export ANDROID_NDK_HOME="$HOME/Android/ndk/27.1.12297006/"
+# -- initialize completion -----------------------------------------------------
+autoload -Uz compinit && compinit
 
-# Update PATH
-export PATH="$PATH:$HOME/.local/bin:$GOPATH/bin:$ANDROID_NDK_HOME"
+# Load local environment variables if available
+[[ -f "$DOTFILES/zsh/.env" ]] && source "$DOTFILES/zsh/.env"
 
-# Load local environment variables
-if [ -f "$DOTFILES/zsh/.zsh_local" ]; then
-    source "$DOTFILES/zsh/.zsh_local"
-fi
-
-# -- initialize starship prompt ----------------------------------------------
+# -- initialize starship prompt ------------------------------------------------
 eval "$(starship init zsh)"
 
-# -- setup zinit -------------------------------------------------------------
-export ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-if [ ! -d "$ZINIT_HOME" ]; then
+# -- setup zinit ---------------------------------------------------------------
+export ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+if [[ ! -d "$ZINIT_HOME" ]]; then
     mkdir -p "$(dirname "$ZINIT_HOME")"
     git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
-source "${ZINIT_HOME}/zinit.zsh"
+source "$ZINIT_HOME/zinit.zsh"
 
-# Ensure _comps is defined before using
-if (( ${+_comps} )); then
-    _comps[zinit]=_zinit
-fi
-autoload -Uz _zinit
+# -- load zinit plugins --------------------------------------------------------
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+zinit light Freed-Wu/fzf-tab-source
 
-# -- load plugins ------------------------------------------------------------
-zinit load zsh-users/zsh-syntax-highlighting
-zinit load zsh-users/zsh-completions
-zinit load zsh-users/zsh-autosuggestions
-zinit load Aloxaf/fzf-tab
-zinit load Freed-Wu/fzf-tab-source
-
-# -- load vi mode ------------------------------------------------------------
+# -- vi mode configuration -----------------------------------------------------
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
-# -- load fzf search plugin --------------------------------------------------
+# -- fzf search plugin ---------------------------------------------------------
 zinit ice lucid wait'0'
 zinit light joshskidmore/zsh-fzf-history-search
 
-# -- add in snippets ---------------------------------------------------------
+# -- load OMZP (Oh My Zsh Plugins) snippets ------------------------------------
 zinit snippet OMZP::git
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::colorize
@@ -76,8 +67,5 @@ source "$DOTFILES/zsh/plugins/fzf/fzf.plugin.zsh"
 source "$DOTFILES/zsh/plugins/tmux/tmux.plugin.zsh"
 source "$DOTFILES/zsh/plugins/dnf/dnf.plugin.zsh"
 
-# -- initialize completion ---------------------------------------------------
-autoload -Uz compinit && compinit
-
-# -- sysinfo on startup ------------------------------------------------------
+# -- sysinfo on startup --------------------------------------------------------
 fastfetch
