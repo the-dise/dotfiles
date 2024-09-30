@@ -48,3 +48,8 @@ alias age='stat / | grep Birth'            # Display system installation date
 # -- clipboard operations ----------------------------------------------------
 alias pbcopy='xsel --clipboard --input'    # Copy to clipboard
 alias pbpaste='xsel --clipboard --output'  # Paste from clipboard
+
+# -- adb ---------------------------------------------------------------------
+alias adb-restart='adb kill-server && adb start-server'
+alias adb-dev='adb devices -l'
+alias adb-logcat='adb logcat -s AndroidRuntime -s System.err -s main -v time'
