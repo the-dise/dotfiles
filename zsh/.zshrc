@@ -64,7 +64,11 @@ zinit snippet OMZP::z
 zinit snippet OMZP::docker
 zinit snippet OMZP::docker-compose
 
-# -- setup history, styles, aliases, and plugins ------------------------------
+# -- 1Password CLI autocompletion ----------------------------------------------
+eval "$(op completion zsh)"
+compdef _op op
+
+# -- load custom configurations (history, styles, aliases, etc.) ---------------
 source "$DOTFILES/zsh/history.zsh"
 source "$DOTFILES/zsh/zstyles.zsh"
 source "$DOTFILES/zsh/aliases.zsh"
