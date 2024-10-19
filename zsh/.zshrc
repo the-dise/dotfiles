@@ -7,6 +7,8 @@ export VISUAL='nvim'
 export DOTFILES="$HOME/.dotfiles"
 export ANDROID_HOME="$HOME/Android"
 export ANDROID_NDK_HOME="$ANDROID_HOME/ndk/27.1.12297006"
+export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+
 
 # Correctly set GOPATH and add to PATH
 export GOPATH="/usr/local/go/bin"
