@@ -7,6 +7,12 @@ return {
     end,
   },
   {
+    "stevearc/dressing.nvim",
+    lazy = false,
+    opts = {},
+  },
+
+  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
     cmd = {
@@ -40,11 +46,6 @@ return {
     },
   },
   {
-    "stevearc/dressing.nvim",
-    lazy = false,
-    opts = {},
-  },
-  {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
@@ -72,29 +73,8 @@ return {
         "vimdoc",
         "html",
         "css",
-        "typescript",
-        "javascript",
-        "go",
       },
-    },
-    run = ":TSUpdate",
-  },
-  {
-    "folke/trouble.nvim",
-    lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    lazy = false,
-    config = function()
-      require("todo-comments").setup()
-    end,
-  },
-  {
-    "Exafunction/codeium.vim",
-    lazy = false,
+    }
   },
   -- Syntax plugins
   { "cespare/vim-toml" },

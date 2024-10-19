@@ -38,9 +38,3 @@ map({ "n", "v" }, "<c-k>", "<cmd> TmuxNavigateUp<CR>", { desc = "Windows Up" })
 -- home/end
 map({ "n", "v" }, "L", "$", { desc = "End of line" })
 map({ "n", "v" }, "H", "^", { desc = "Start of line" })
-
--- disable arrows
-map("", "<Up>", "<Nop>")
-map("", "<Down>", "<Nop>")
-map("", "<Left>", "<Nop>")
-map("", "<Right>", "<Nop>")

@@ -1,6 +1,6 @@
 return {
   defaults = { lazy = true },
-  install = { colorscheme = { "material-darker" } },
+  install = { colorscheme = { "nvchad" } },
 
   ui = {
     icons = {

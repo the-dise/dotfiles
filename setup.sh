@@ -76,7 +76,7 @@ setup_mpv() {
 # Function to setup nvim configuration
 setup_nvim() {
   # Symlink nvim configuration folder
-  relink ~/.dotfiles/nvim ~/.config/nvim
+  relink ~/.dotfiles/nvim/lua ~/.config/nvim/lua
 
   echo -e "${GREEN}${BOLD}nvim${NC} successfully configured!"
 }
