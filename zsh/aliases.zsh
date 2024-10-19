@@ -29,21 +29,24 @@ fzf-nvim() {
 alias vifz='fzf_open_nvim'
 
 # -- miscellaneous -----------------------------------------------------------
-alias c='clear'                            # Clear terminal
-alias sn='sudo nautilus'                   # Open Nautilus as root
+alias c='clear'
+alias sn='sudo nautilus'
 
 # -- mpv ---------------------------------------------------------------------
-mpv-torrent() { webtorrent "$1" --mpv --playlist; }
+mpv-torrent() {
+  command -v webtorrent &>/dev/null && webtorrent "$1" --mpv --playlist ||
+    echo "webtorrent not installed"
+}
 
 # -- system info -------------------------------------------------------------
-alias ff='fastfetch'                       # Display system information
+alias ff='fastfetch'
 alias ffa="fastfetch -c all.jsonc"
-alias k='uname -rs'                        # Display kernel name and version
-alias age='stat / | grep Birth'            # Display system installation date
+alias k='uname -rs'
+alias age='stat / | grep Birth'
 
 # -- clipboard operations ----------------------------------------------------
-alias pbcopy='xsel --clipboard --input'    # Copy to clipboard
-alias pbpaste='xsel --clipboard --output'  # Paste from clipboard
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
 
 # -- adb ---------------------------------------------------------------------
 alias adb-restart='adb kill-server && adb start-server'
