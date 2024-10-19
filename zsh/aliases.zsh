@@ -20,10 +20,6 @@ alias ncdu="ncdu --color=dark --extended --fast-ui-updates --enable-delete"
 alias grep="grep --color=always"
 alias diff="diff --color=auto"
 
-# -- use neovim instead of vim -----------------------------------------------
-alias vi='nvim'
-alias vim='nvim'
-
 fzf-nvim() {
   local file
   file=$(fzf) || return 1
