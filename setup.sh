@@ -5,7 +5,7 @@ GREEN='\033[0;32m'
 BOLD='\033[1m'
 NC='\033[0m' # No Color
 
-relink () {
+relink() {
   local src="$1"
   local dst="$2"
 
@@ -18,23 +18,23 @@ relink () {
 confirm_action() {
   read -p "$1 (Y/n): " choice
   case "$choice" in
-    y|Y|"") # Default to Yes
-      return 0
-      ;;
-    n|N)
-      return 1
-      ;;
-    *)
-      echo "Invalid choice, skipping."
-      return 1
-      ;;
+  y | Y | "") # Default to Yes
+    return 0
+    ;;
+  n | N)
+    return 1
+    ;;
+  *)
+    echo "Invalid choice, skipping."
+    return 1
+    ;;
   esac
 }
 
 # Function to install starship.rs
 install_starship() {
   # Check if starship is already installed
-  if ! command -v starship &> /dev/null; then
+  if ! command -v starship &>/dev/null; then
     # Install starship.rs
     curl -fsSL https://starship.rs/install.sh | bash
   else
@@ -46,7 +46,7 @@ install_starship() {
 setup_zsh() {
   # Symlink zshrc
   relink ~/.dotfiles/zsh/.zshrc ~/.zshrc
-  
+
   # Install and symlink starship.rs if chosen
   if [[ -d ~/.config ]]; then
     install_starship
