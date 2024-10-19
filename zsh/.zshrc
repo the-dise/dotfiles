@@ -2,8 +2,6 @@
 export AUTOSTART_TMUX=true
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
-export EDITOR='nvim'
-export VISUAL='nvim'
 export DOTFILES="$HOME/.dotfiles"
 export ANDROID_HOME="$HOME/Android"
 export ANDROID_NDK_HOME="$ANDROID_HOME/ndk/27.1.12297006"
