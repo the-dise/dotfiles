@@ -53,7 +53,7 @@ overlay0 = "#6c7086"
 surface2 = "#585b70"
 surface1 = "#45475a"
 surface0 = "#313244"
-base = "#1e1e2e"
+base = "#1e1e1e"
 mantle = "#181825"
 crust = "#11111b"
 
@@ -62,29 +62,29 @@ disabled = false
 style = "bg:surface0 fg:text"
 
 [os.symbols]
-Windows = "󰍲"
-Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = ""
-Manjaro = ""
-Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
-CentOS = ""
-Debian = "󰣚"
-Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
+Windows = "󰍲 "
+Ubuntu = "󰕈 "
+SUSE = " "
+Raspbian = "󰐿 "
+Mint = "󰣭 "
+Macos = " "
+Manjaro = " "
+Linux = "󰌽 "
+Gentoo = "󰣨 "
+Fedora = "󰣛 "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = "󰣇 "
+Artix = "󰣇 "
+CentOS = " "
+Debian = "󰣚 "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
 
 [hostname]
 ssh_only = true
-ssh_symbol = "󰒍"
+ssh_symbol = "󰒍 "
 style = "bg:surface0 fg:text"
 format = '[$ssh_symbol $hostname ]($style)'
 disabled = false
@@ -102,13 +102,13 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
-"Documents" = "󰈤"
-"Downloads" = "󰮏"
-"Music" = "󰽴"
-"Pictures" = "󰥶"
-"Videos" = "󰯜"
-"Develop" = "󰘦"
-".dotfiles" = "󰘓"
+"Documents" = "󰈤 "
+"Downloads" = "󰮏 "
+"Music" = "󰽴 "
+"Pictures" = "󰥶 "
+"Videos" = "󰯜 "
+"Develop" = "󰘦 "
+".dotfiles" = "󰘓 "
 
 [git_branch]
 symbol = ""
@@ -167,7 +167,7 @@ format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 [docker_context]
 symbol = ""
 style = "bg:mantle"
-format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
+format = '[[ $symbol( $context) ](fg:base bg:blue)]($style)'
 
 [battery]
 full_symbol = "󰁹 "
